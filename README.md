@@ -1,3 +1,5 @@
 # .ThisSite
+
 ## Date: 08/07/2022
-### Created By: Jacquelin Velasquez, Adama Doumbia,
+
+### Created By: Jacquelin Velasquez, Adama Doumbia, Carolyn Chien
