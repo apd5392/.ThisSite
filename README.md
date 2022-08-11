@@ -16,13 +16,16 @@
 
 ---
 # **_Getting Started_**
-[Trello]()
+[Trello](https://trello.com/b/P0VJlKtd/thissite)
 
 [Heroku]()
 
 ---
 
 ## **Technology Used**
+* React
+* Sequelize
+* JWT Auth
 
 ---
 
