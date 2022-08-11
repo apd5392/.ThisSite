@@ -11,8 +11,7 @@
 ---
 
 # **_Description_**
-
-
+.ThisSite is an app where a user can either book or post a location for events or vacations. Users will be able rate and comment on each location they have visited.
 
 ---
 # **_Getting Started_**
@@ -26,10 +25,19 @@
 * React.js
 * Sequelize.js
 * JWT Auth
+* Express
+* Node
 
 ---
 
 ### **Images**
+
+#### **_App Logo_**
+![Logo](https://i.imgur.com/ozgtwMJ.jpg)
+
+---
+
+### **Diagrams**
 
 #### **_ERD_**
 ![ERD](https://i.imgur.com/VVdnweT.png)
