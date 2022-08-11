@@ -29,10 +29,10 @@
 ### **Images**
 
 #### **_ERD_**
-![ERD](https://imgur.com/VVdnweT)
+![ERD](https://i.imgur.com/VVdnweT.png)
 
 #### **_Component Hierarchy Diagram_**
-![CHD](https://imgur.com/Ctiawha)
+![CHD](https://i.imgur.com/Ctiawha.png)
 
 ---
 
