@@ -23,8 +23,8 @@
 ---
 
 ## **Technology Used**
-* React
-* Sequelize
+* React.js
+* Sequelize.js
 * JWT Auth
 
 ---
