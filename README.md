@@ -15,29 +15,21 @@
 
 
 ---
+# **_Getting Started_**
+[Trello]()
+[Heroku]()
 
-# **Technology Used**
+---
+
+## **Technology Used**
 
 
 
 ---
+
 ### **Images**
 
-
-
 ---
 
-# **Wireframe**
-
-
-
----
-
-# **Trello**
-
-[Trello]()
-
----
-
-# **Credit**
+### **Credit**
 
