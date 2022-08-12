@@ -1,3 +1,4 @@
+![Logo](https://i.imgur.com/ozgtwMJ.jpg)
 # .ThisSite
 
 ## Date: 08/07/2022
@@ -32,8 +33,6 @@
 
 ### **Images**
 
-#### **_App Logo_**
-![Logo](https://i.imgur.com/ozgtwMJ.jpg)
 
 ---
 
