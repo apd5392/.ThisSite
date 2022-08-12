@@ -7,9 +7,13 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="navigation">
-        <Link className="logo-container" to="/">
-          <img src={logo} />
-        </Link>
+        <div className="logo-container">
+          <Link to="/">
+            <img src={logo} />
+          </Link>
+          <h1>.ThisSite</h1>
+        </div>
+
         <div className="nav-links-container">
           <Link className="nav-link" to="/">
             Home
