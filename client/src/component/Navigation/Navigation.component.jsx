@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import './navigation.styles.css'
+
 const Navigation = () => {
   return (
     <Fragment>
@@ -10,8 +11,8 @@ const Navigation = () => {
         <div className="logo-container">
           <Link to="/">
             <img src={logo} />
+            <h1>.ThisSite</h1>
           </Link>
-          <h1>.ThisSite</h1>
         </div>
 
         <div className="nav-links-container">
