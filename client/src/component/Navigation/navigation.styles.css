@@ -7,7 +7,7 @@
 }
 
 .logo-container {
-  width: 250px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,11 +16,15 @@
 
 .logo-container img {
   width: 100%;
-  background-color: aqua;
+
+  position: relative;
 }
 
 .logo-container h1 {
   margin: 0 0;
   padding: 0 0;
-  background-color: aqua;
+
+  position: absolute;
+  top: 50px;
+  left: 180px;
 }
