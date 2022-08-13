@@ -1,8 +1,8 @@
-import { Fragment } from 'react'
-import { Outlet } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/logo.png'
-import './navigation.styles.css'
+import { Fragment } from "react";
+import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import "./navigation.styles.css";
 
 const Navigation = () => {
   return (
@@ -17,7 +17,7 @@ const Navigation = () => {
 
         <div className="nav-links-container">
           <Link className="nav-link" to="/">
-            Home
+            HOME
           </Link>
           <Link className="nav-link" to="/search">
             SEARCH
@@ -30,7 +30,7 @@ const Navigation = () => {
       </div>
       <Outlet />
     </Fragment>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

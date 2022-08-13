@@ -3,7 +3,7 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  background-color: paleturquoise;
+  background-color: #bbc8ba;
 }
 
 .logo-container {
@@ -25,4 +25,8 @@
   position: absolute;
   top: 50px;
   left: 180px;
+}
+
+.nav-link{
+  padding: 10px;
 }

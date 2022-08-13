@@ -2,12 +2,13 @@
   display: flex;
   width: 700px;
   height: 70px;
-  background-color: gray;
+  background-color: #bbc8ba;
   margin: 0 auto;
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  border-radius: 40px;
+  padding: 10px;
+  /* border-radius: 40px; */
 }
 
 .autocomplete-dropdown-container {
@@ -79,9 +80,10 @@
   position: absolute;
   top: 80px;
   right: 50px;
-  background-color: aqua;
+  background-color: #546747;
   width: 220px;
   height: 200px;
+  border-radius: 5%;
 }
 
 .dropdown-menu .panel {
@@ -108,4 +110,12 @@
 .btn-box .number {
   font-size: 20px;
   margin-top: 8px;
+}
+.searchButton{
+  margin-left: 20px;
+  margin-bottom: 23px;
+  border-radius: 10px;
+}
+.searchButton:hover{
+  background-color: green;
 }
