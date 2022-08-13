@@ -1,0 +1,75 @@
+.search-container {
+  display: flex;
+  width: 700px;
+  height: 70px;
+  background-color: gray;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  border-radius: 40px;
+}
+
+.autocomplete-dropdown-container {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 10px;
+  background-color: aquamarine;
+}
+
+.where-container {
+  background-color: white;
+  width: 300px;
+  height: 50px;
+  border-radius: 40px;
+  padding: 10px 20px;
+}
+
+.location-search-input {
+  border: none;
+  display: block;
+  height: 40px;
+  background-color: transparent;
+}
+.location-search-input:focus {
+  outline: 0;
+}
+
+.checkin-container {
+  position: relative;
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 40px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.date-calender {
+  position: absolute;
+  left: 0;
+  top: 75px;
+}
+
+.checkin-container label {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+}
+
+.checkin-container.active {
+  border: 2px blue solid;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+
+.addGuest-container {
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 40px;
+}

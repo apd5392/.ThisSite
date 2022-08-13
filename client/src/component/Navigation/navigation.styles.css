@@ -16,14 +16,12 @@
 
 .logo-container img {
   width: 100%;
-
   position: relative;
 }
 
 .logo-container h1 {
   margin: 0 0;
   padding: 0 0;
-
   position: absolute;
   top: 50px;
   left: 180px;
