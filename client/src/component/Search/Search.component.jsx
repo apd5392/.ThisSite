@@ -11,6 +11,12 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const [openCal, SetOpenCal] = useState(false)
+  const [openheadCounts, SetheadCounts] = useState(false)
+  const [headCounts, setHeadCounts] = useState({
+    adult: 0,
+    children: 0,
+    infant: 0
+  })
 
   const selectionRange = {
     startDate: startDate,
@@ -31,17 +37,26 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
   const handleSelect = (value) => {
     setAddress(value)
-    console.log(address)
   }
   const toggleCal = () => {
     SetOpenCal(!openCal)
+  }
+  const toggleHeadCounts = () => {
+    SetheadCounts(!openheadCounts)
+  }
+
+  const decrement = (type, operation) => {
+    console.log(type)
+    setHeadCounts({
+      ...headCounts,
+      [type]:
+        operation === 'd' ? (headCounts[type] -= 1) : (headCounts[type] += 1)
+    })
   }
 
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (
       <div className="search-container">
-        {/* <h1>Find places to stay on .ThisSite</h1>
-        <p>Discover entire homes and private rooms perfect for any trip.</p> */}
         <div className="where-container">
           <PlacesAutocomplete
             value={address}
@@ -97,10 +112,71 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
             />
           )}
         </div>
-
-        <div className="addGuest-container">
-          <span>Adult: Children: </span>
+        <div className="addGuest-container" onClick={toggleHeadCounts}>
+          <span>
+            {`Adult: ${headCounts.adult} Children: ${headCounts.children}`}
+          </span>
         </div>
+        {openheadCounts && (
+          <div className="dropdown-menu">
+            <div className="panel">
+              <span>Adult</span>
+              <div className="btn-box">
+                <button
+                  className="btn"
+                  onClick={() => decrement('adult', 'd')}
+                  disabled={headCounts.adult <= 0 ? 'true' : ''}
+                >
+                  -
+                </button>
+                <span className="number">{headCounts.adult}</span>
+                <button className="btn" onClick={() => decrement('adult', 'i')}>
+                  +
+                </button>
+              </div>
+            </div>
+            <div className="panel">
+              <span>Children</span>
+              <div className="btn-box">
+                <button
+                  className="btn"
+                  onClick={() => decrement('children', 'd')}
+                  disabled={headCounts.children <= 0 ? 'true' : ''}
+                >
+                  -
+                </button>
+                <span className="number">{headCounts.children}</span>
+                <button
+                  className="btn"
+                  onClick={() => decrement('children', 'i')}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div className="panel">
+              <span>Infant</span>
+              <div className="btn-box">
+                <button
+                  className="btn"
+                  onClick={() => decrement('infant', 'd')}
+                  disabled={headCounts.infant <= 0 ? 'true' : ''}
+                >
+                  -
+                </button>
+                <span className="number">{headCounts.infant}</span>
+                <button
+                  className="btn"
+                  onClick={() => decrement('infant', 'i')}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <button>SEARCH</button>
       </div>
     )
   } else {
