@@ -1,32 +1,42 @@
 import { useState } from 'react'
+import axios from 'axios'
 
 const initSignInfo = {
-  username: '',
+  userName: '',
   password: ''
 }
 
 const SignIn = () => {
   const [userInfo, setUserInfo] = useState(initSignInfo)
-  const { username, password } = userInfo
+  const { userName, password } = userInfo
 
   const handleChange = (e) => {
     console.log(e.target.value)
     const { name, value } = e.target
     setUserInfo({ ...userInfo, [name]: value })
   }
-  console.log(userInfo)
+
+  const getUser = async (e) => {
+    e.preventDefault()
+    console.log(userInfo)
+    const getUser = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/user/login`,
+      userInfo
+    )
+    console.log(getUser)
+  }
 
   return (
     <div className="sign-container">
       <h1>Please sign in</h1>
-      <form>
+      <form onSubmit={getUser}>
         <div className="input-container">
           <label>Username:</label>
           <input
             type="text"
             onChange={handleChange}
-            name="username"
-            value={username}
+            name="userName"
+            value={userName}
           />
         </div>
         <div className="input-container">

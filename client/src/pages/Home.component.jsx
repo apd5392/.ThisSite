@@ -1,4 +1,7 @@
 import Search from '../component/Search/Search.component'
+import CardSlider from '../component/Slider/Slider.component'
+import LocationCard from '../component/LocationCard/LocationCard.component'
+import CommentCard from '../component/CommentCard/CommentCard.component'
 
 const Home = () => {
   return (
@@ -6,6 +9,8 @@ const Home = () => {
       <h1>Find places to stay on .ThisSite</h1>
       <p>Discover entire homes and private rooms perfect for any trip.</p>
       <Search />
+      <CardSlider locationCard={LocationCard} />
+      <CardSlider locationCard={CommentCard} />
     </div>
   )
 }
