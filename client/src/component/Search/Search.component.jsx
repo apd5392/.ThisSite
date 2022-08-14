@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { DateRangePicker } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css'
+import nextWednesday from 'date-fns/esm/nextWednesday'
 
 const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const [address, setAddress] = useState('')
@@ -29,6 +30,8 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
   const selectDateRange = (ranges) => {
     setStartDate(ranges.selection.startDate)
+
+    console.log(ranges.selection)
     setEndDate(ranges.selection.endDate)
   }
 
