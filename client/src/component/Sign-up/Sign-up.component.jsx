@@ -51,7 +51,7 @@ const SignUp = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-containerUp">
           <label>First Name: </label>
-          <input
+          <input className='signScreen'
             type="text"
             onChange={handleChange}
             name="firstName"
@@ -61,7 +61,7 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Last Name: </label>
-          <input
+          <input className='signScreen'
             type="text"
             onChange={handleChange}
             name="lastName"
@@ -72,7 +72,7 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Username: </label>
-          <input
+          <input className='signScreen'
             type="text"
             onChange={handleChange}
             name="userName"
@@ -82,7 +82,7 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Email: </label>
-          <input
+          <input className='signScreen'
             type="email"
             onChange={handleChange}
             name="email"
@@ -93,7 +93,7 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Phone Number: </label>
-          <input
+          <input className='signScreen'
             type="text"
             onChange={handleChange}
             name="phoneNumber"
@@ -103,7 +103,7 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Password: </label>
-          <input
+          <input className='signScreen'
             type="password"
             name="password"
             onChange={handleChange}
@@ -114,7 +114,7 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Confirm Password: </label>
-          <input
+          <input className='signScreen'
             type="password"
             name="confirmPassword"
             onChange={passwordValidte}

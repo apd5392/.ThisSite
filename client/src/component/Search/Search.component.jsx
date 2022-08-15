@@ -75,7 +75,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
             }) => (
               <div>
                 <label>Where:</label>
-                <input
+                <input className='searchbox'
                   {...getInputProps({
                     placeholder: 'Search Destinations',
                     className: 'location-search-input'

@@ -131,10 +131,12 @@
 .searchButton{
   margin-left: 20px;
   margin-bottom: 23px;
+  cursor: pointer;
 }
 
 .searchButton:hover{
   background-color: darkgray;
+  cursor: pointer;
 }
 
 .location-search-input{
