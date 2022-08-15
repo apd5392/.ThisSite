@@ -32,7 +32,7 @@ const SignIn = () => {
       <form onSubmit={getUser}>
         <div className="input-containerIn">
           <label>Username: </label>
-          <input
+          <input className='signScreen'
             type="text"
             onChange={handleChange}
             name="userName"
@@ -41,7 +41,7 @@ const SignIn = () => {
         </div>
         <div className="input-containerIn">
           <label>Password: </label>
-          <input
+          <input className='signScreen'
             type="password"
             required
             name="password"

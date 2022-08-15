@@ -23,7 +23,7 @@ input {
   width: 100%;
 }
 
-input:focus {
+.signScreen:focus {
   background-color: lightblue;
 }
 
@@ -41,8 +41,10 @@ input:focus {
 
 .signInBtn:hover {
   background-color: darkgray;
+  cursor: pointer;
 }
 
 .signUpbtn:hover {
   background-color: darkgray;
+  cursor: pointer;
 }
