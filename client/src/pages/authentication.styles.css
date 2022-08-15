@@ -28,3 +28,11 @@
 .input-containerUp{
   width: 400px;
 }
+
+.signInBtn:hover{
+  background-color: darkgray;
+}
+
+.signUpbtn:hover{
+  background-color: darkgray;
+}
