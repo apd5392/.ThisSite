@@ -74,7 +74,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
               loading
             }) => (
               <div>
-                <label>Where</label>
+                <label>Where:</label>
                 <input
                   {...getInputProps({
                     placeholder: 'Search Destinations',
@@ -103,7 +103,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
           </PlacesAutocomplete>
         </div>
         <div className={`checkin-container ${openCal ? 'active' : ''} `}>
-          <label>When</label>
+          <label>When:</label>
           <span
             onClick={toggleCal}
           >{`${startDate.toLocaleDateString()} to ${endDate.toLocaleDateString()}`}</span>
@@ -179,7 +179,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
           </div>
         )}
 
-        <button>SEARCH</button>
+        <button className='searchButton'>Search</button>
       </div>
     )
   } else {

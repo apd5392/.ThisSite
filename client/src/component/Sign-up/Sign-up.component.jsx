@@ -46,11 +46,11 @@ const SignUp = () => {
   }
 
   return (
-    <div className="sign-container">
-      <h1>Doesn't have an account yet?</h1>
+    <div className="signUp-container">
+      <h1>Don't have an account yet?</h1>
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>First Name:</label>
+        <div className="input-containerUp">
+          <label>First Name: </label>
           <input
             type="text"
             onChange={handleChange}
@@ -59,8 +59,8 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className="input-container">
-          <label>Last Name:</label>
+        <div className="input-containerUp">
+          <label>Last Name: </label>
           <input
             type="text"
             onChange={handleChange}
@@ -70,8 +70,8 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="input-container">
-          <label>Username:</label>
+        <div className="input-containerUp">
+          <label>Username: </label>
           <input
             type="text"
             onChange={handleChange}
@@ -80,8 +80,8 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className="input-container">
-          <label>Email:</label>
+        <div className="input-containerUp">
+          <label>Email: </label>
           <input
             type="email"
             onChange={handleChange}
@@ -91,8 +91,8 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="input-container">
-          <label>Phone Number:</label>
+        <div className="input-containerUp">
+          <label>Phone Number: </label>
           <input
             type="text"
             onChange={handleChange}
@@ -101,8 +101,8 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className="input-container">
-          <label>Password:</label>
+        <div className="input-containerUp">
+          <label>Password: </label>
           <input
             type="password"
             name="password"
@@ -112,8 +112,8 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="input-container">
-          <label>Confirm Password:</label>
+        <div className="input-containerUp">
+          <label>Confirm Password: </label>
           <input
             type="password"
             name="confirmPassword"
@@ -124,7 +124,7 @@ const SignUp = () => {
         </div>
 
         {isError && <p>password doesn't match</p>}
-        <button>Sign Up</button>
+        <button className='signUpbtn'>Sign Up</button>
       </form>
     </div>
   )

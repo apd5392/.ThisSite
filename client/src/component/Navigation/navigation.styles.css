@@ -3,7 +3,11 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  background-color: paleturquoise;
+  /* background-color: paleturquoise; */
+  background-color: #bbc8ba;
+}
+.Home-container{
+  margin-top: 50px;
 }
 
 .logo-container {
@@ -26,3 +30,18 @@
   top: 50px;
   left: 180px;
 }
+.nav-links-container{
+  display: flex;
+  align-items: flex-end;
+}
+.nav-link {
+  padding: 10px;
+  color: rgb(48, 92, 48);
+  text-decoration: none;
+  font-style: bold;
+  font-size: 20px;
+}
+
+ .Title{
+  color: rgb(48, 92, 48);
+ }

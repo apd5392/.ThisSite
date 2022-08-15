@@ -30,8 +30,8 @@ const SignIn = () => {
     <div className="sign-container">
       <h1>Please sign in</h1>
       <form onSubmit={getUser}>
-        <div className="input-container">
-          <label>Username:</label>
+        <div className="input-containerIn">
+          <label>Username: </label>
           <input
             type="text"
             onChange={handleChange}
@@ -39,8 +39,8 @@ const SignIn = () => {
             value={userName}
           />
         </div>
-        <div className="input-container">
-          <label>Password:</label>
+        <div className="input-containerIn">
+          <label>Password: </label>
           <input
             type="password"
             required
@@ -49,7 +49,7 @@ const SignIn = () => {
             value={password}
           />
         </div>
-        <button>Sign In</button>
+        <button className='signInBtn'>Sign In</button>
       </form>
     </div>
   )
