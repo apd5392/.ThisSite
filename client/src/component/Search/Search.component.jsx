@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { DateRangePicker } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css'
-import nextWednesday from 'date-fns/esm/nextWednesday'
 
 const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const [address, setAddress] = useState('')
@@ -38,9 +37,12 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const handleChange = (value) => {
     setAddress(value)
   }
+
   const handleSelect = (value) => {
     setAddress(value)
+    console.log(address)
   }
+
   const toggleCal = () => {
     SetOpenCal(!openCal)
   }
@@ -92,7 +94,12 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
                       ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                       : { backgroundColor: '#ffffff', cursor: 'pointer' }
                     return (
-                      <div {...getSuggestionItemProps(suggestion)}>
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style
+                        })}
+                      >
                         <span>{suggestion.description}</span>
                       </div>
                     )
@@ -179,7 +186,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
           </div>
         )}
 
-        <button className='searchButton'>Search</button>
+        <button className="searchButton">Search</button>
       </div>
     )
   } else {
