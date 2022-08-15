@@ -1,18 +1,13 @@
 .user-dropdown-container {
   position: absolute;
-  width: 240px;
-  height: 340px;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
   background-color: white;
+  border: 2px solid black;
   top: 120px;
   right: 40px;
   z-index: 5;
 }
-
-.user-dropdown-container.nav-links-container {
-  width: 80%;
-  background-color: aqua;
+.nav-links-containerDropDown{
+  display: flex;
+  flex-direction: column;
 }
