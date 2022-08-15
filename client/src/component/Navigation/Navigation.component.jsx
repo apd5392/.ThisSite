@@ -11,7 +11,7 @@ const Navigation = () => {
         <div className="logo-container">
           <Link to="/">
             <img src={logo} />
-            <h1 className='Title'>.ThisSite</h1>
+            <h1 className="Title">.ThisSite</h1>
           </Link>
         </div>
 
