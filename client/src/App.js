@@ -15,6 +15,7 @@ function App() {
         <Route path="/hostedlocations" />
         <Route path="/host" />
         <Route path="/account" />
+        <Route path="/auth" element={<Authentication />} />
       </Route>
     </Routes>
   )
