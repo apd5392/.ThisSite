@@ -2,6 +2,7 @@ import Search from '../component/Search/Search.component'
 import CardSlider from '../component/Slider/Slider.component'
 import LocationCard from '../component/LocationCard/LocationCard.component'
 import CommentCard from '../component/CommentCard/CommentCard.component'
+import "./Home.styles.css"
 
 const Home = () => {
   return (

@@ -11,7 +11,7 @@ const Navigation = () => {
         <div className="logo-container">
           <Link to="/">
             <img src={logo} />
-            <h1>.ThisSite</h1>
+            <h1 className='Title'>.ThisSite</h1>
           </Link>
         </div>
 
@@ -20,11 +20,11 @@ const Navigation = () => {
             Home
           </Link>
           <Link className="nav-link" to="/search">
-            SEARCH
+            Search
           </Link>
 
           <Link className="nav-link" to="/auth">
-            SIGN IN
+            Sign In
           </Link>
         </div>
       </div>
