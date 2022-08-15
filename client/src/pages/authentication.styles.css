@@ -4,15 +4,14 @@
   align-items: center;
 }
 
-.sign-container{
+.sign-container {
   background-color: #546747;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
 }
 
-.signUp-container{
-  
+.signUp-container {
   background-color: #546747;
   margin-top: 20px;
   padding: 15px;
@@ -20,19 +19,30 @@
   text-align: center;
 }
 
-.input-containerIn{
+input {
+  width: 100%;
+}
+
+input:focus {
+  background-color: lightblue;
+}
+
+.input-containerIn {
   width: 200px;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.input-containerUp{
+.input-containerUp {
   width: 400px;
+  margin: 20px;
+  font-weight: bold;
 }
 
-.signInBtn:hover{
+.signInBtn:hover {
   background-color: darkgray;
 }
 
-.signUpbtn:hover{
+.signUpbtn:hover {
   background-color: darkgray;
 }

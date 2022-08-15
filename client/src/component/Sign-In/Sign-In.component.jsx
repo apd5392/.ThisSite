@@ -28,7 +28,7 @@ const SignIn = () => {
 
   return (
     <div className="sign-container">
-      <h1>Please sign in</h1>
+      <h1>Please Sign In</h1>
       <form onSubmit={getUser}>
         <div className="input-containerIn">
           <label>Username: </label>
