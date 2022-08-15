@@ -12,7 +12,9 @@ function App() {
           path="locationdetails/:locationid"
           element={<LocationDetail />}
         /> */}
-        <Route path="/auth" element={<Authentication />} />
+        <Route path="/hostedlocations" />
+        <Route path="/host" />
+        <Route path="/account" />
       </Route>
     </Routes>
   )

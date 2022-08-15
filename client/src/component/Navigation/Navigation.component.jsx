@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import './navigation.styles.css'
-
+import UserDropDown from '../User-dropdown/User-dropdown.component'
 const Navigation = () => {
   return (
     <Fragment>
@@ -27,6 +27,7 @@ const Navigation = () => {
             SIGN IN
           </Link>
         </div>
+        <UserDropDown />
       </div>
       <Outlet />
     </Fragment>
