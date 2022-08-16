@@ -13,13 +13,16 @@ const imgs = [
 ]
 const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
+  const { address, description, images, price, host } = selectedlocation
+  console.log(host)
+  const add = address.split(',')
 
   return (
     <div className="location-main-container">
       <h1>title</h1>
-      <h2>City, State</h2>
+      <h2>{`${add[1]},  ${add[2]}`}</h2>
       <div className="location-img-main-container">
-        {selectedlocation.images.map((img, index) => (
+        {images.map((img, index) => (
           <div
             className={`img-container ${index % 10 === 0 ? 'big' : 'small'}`}
           >
@@ -27,7 +30,9 @@ const LocationDetail = () => {
           </div>
         ))}
       </div>
-      <h3>Hosted by ...</h3>
+      <h3> Hosted by {host.lastName}</h3>
+      <h3>{`$ ${price}  per night`}</h3>
+      <p>{description}</p>
       <div className="review-container">
         <h3>Reviews... </h3>
         <CommentCard />
