@@ -4,12 +4,17 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-
+import { UserProvider } from '../src/contexts/user.context'
+import { LocationProvider } from '../src/contexts/locationdetail.context'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <LocationProvider>
+          <App />
+        </LocationProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 )

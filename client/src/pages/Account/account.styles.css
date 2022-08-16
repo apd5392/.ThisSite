@@ -1,0 +1,24 @@
+.create-account-main {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-account-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0px;
+  width: 300px;
+}
+.create-account-form input {
+  width: 100%;
+  margin: 10px;
+  display: block;
+}
+
+::placeholder {
+  color: black;
+}

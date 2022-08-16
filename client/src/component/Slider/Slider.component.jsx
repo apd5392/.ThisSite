@@ -1,7 +1,15 @@
 import './slider.styles.css'
 // import LocationCard from '../LocationCard/LocationCard.component'
 
-const CardSlider = ({ locationCard: LocationCard }) => {
+const CardSlider = ({
+  locationCard: LocationCard,
+  commentCard: CommentCard,
+  Locations
+}) => {
+  // const { locationCard: LocationCard } = props
+  // const { Locations } = props
+
+  console.log(Locations)
   const data = [1, 2, 3, 4, 5, 6, 7]
 
   const slideLeft = () => {
@@ -22,9 +30,10 @@ const CardSlider = ({ locationCard: LocationCard }) => {
       </div>
 
       <div className="slider">
-        {data.map((comment, index) => (
-          <LocationCard key={index} />
-        ))}
+        {Locations &&
+          Locations.map((element, index) => (
+            <LocationCard key={index} location={element} />
+          ))}
       </div>
       <div className="right-btn btn" onClick={slideRight}>
         <i class="fa-solid fa-angles-right"></i>
