@@ -20,6 +20,12 @@
 
 [Heroku]()
 
+#### **Required Installs**
+* npm i
+* npm i axios
+* npm i express
+* npm i react-router-dom
+
 ---
 
 ## **Technology Used**
