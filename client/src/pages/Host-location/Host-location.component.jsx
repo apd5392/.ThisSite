@@ -1,8 +1,8 @@
 import './host-location.styles.css'
 import { useState } from 'react'
-
+import axios from 'axios'
 const defaultFormfields = {
-  user_Id: '',
+  user_Id: 1,
   images: [],
   address: '',
   description: '',
@@ -18,7 +18,6 @@ const HostLocation = () => {
     console.log(files)
     preViewFiles(files)
     const { name, value } = e.target
-
     setFormfields({ ...Formfields, [name]: value })
   }
 
@@ -30,28 +29,42 @@ const HostLocation = () => {
       reader.onloadend = () => {
         previewList.push(reader.result)
         setPreview(previewList)
+        setFormfields({ ...Formfields, images: previewList })
       }
     })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const newLocation = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/location/host`,
+      Formfields
+    )
+    console.log(newLocation)
+  }
+
   console.log(preview)
+  console.log(Formfields)
 
   return (
     <div className="host-container">
       <h1>Please fill out details</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="img-container">
-          <label>Please upload five image og your hosting</label>
+          <label>Please upload five images of your hosting </label>
           <input
             type="file"
-            name="images"
+            // name="images"
             multiple="multiple"
             onChange={handleChange}
             className="form-input"
+            required
           />
-          <div>
-            {preview.map((img) => (
-              <img src={img} />
+          <div className="upload-img-container">
+            {preview.map((img, index) => (
+              <div className="img-box">
+                <img src={img} />
+              </div>
             ))}
           </div>
         </div>
@@ -62,6 +75,26 @@ const HostLocation = () => {
             onChange={handleChange}
             name="address"
             value={address}
+            required
+          />
+        </div>
+        <div className="input-containerUp">
+          <label>Description: </label>
+          <input
+            type="text"
+            onChange={handleChange}
+            name="description"
+            value={description}
+            required
+          />
+        </div>
+        <div className="input-containerUp">
+          <label>Price: </label>
+          <input
+            type="number"
+            onChange={handleChange}
+            name="price"
+            value={price}
             required
           />
         </div>

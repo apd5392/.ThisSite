@@ -1,5 +1,5 @@
-import "./user-dropdown.styles.css";
-import { Link } from "react-router-dom";
+import './user-dropdown.styles.css'
+import { Link } from 'react-router-dom'
 const UserDropDown = () => {
   return (
     <div className="user-dropdown-container">
@@ -11,7 +11,7 @@ const UserDropDown = () => {
           Host your home
         </Link>
 
-        <Link className="nav-link" to="/account">
+        <Link className="nav-link" to="/accountdetail">
           Account
         </Link>
         <Link className="nav-link" to="/">
@@ -19,7 +19,7 @@ const UserDropDown = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserDropDown;
+export default UserDropDown
