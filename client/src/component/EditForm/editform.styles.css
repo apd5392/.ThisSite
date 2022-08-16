@@ -1,0 +1,35 @@
+.edit-form-main-container {
+  width: 500px;
+  height: 400px;
+  background-color: aquamarine;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.input-edit-container label {
+  display: block;
+}
+
+.text-container {
+  width: 90%;
+  height: 100px;
+  margin: 10px 0;
+  border: 1px solid #546747;
+}
+.text-container:focus {
+  outline: 0;
+}
+
+.input-edit-container input {
+  margin: 10px 0;
+  width: 50px;
+  display: block;
+}
+
+.input-edit-container button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #546747;
+  color: white;
+}

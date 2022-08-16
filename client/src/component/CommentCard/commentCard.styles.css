@@ -6,4 +6,24 @@
   margin-left: 10px;
   border-radius: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 3px 3px 3px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.main-comment-container img {
+  margin-top: 10px;
+  width: 200px;
+  height: 130px;
+}
+
+.comment-content-box {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.comment-content-box p {
+  white-space: wrap;
+  word-wrap: break-word;
 }
