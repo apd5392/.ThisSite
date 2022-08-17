@@ -4,13 +4,13 @@ import './slider2.styles.css'
 const CardSlider2 = ({ commentCard: CommentCard, Locations }) => {
   const slideLeft = () => {
     const slider = document.querySelector('.slider2')
-    slider.scrollLeft = slider.scrollLeft + 500
+    slider.scrollLeft = slider.scrollLeft - 500
   }
 
   const slideRight = () => {
     const slider = document.querySelector('.slider2')
     console.log(slider)
-    slider.scrollLeft = slider.scrollLeft - 500
+    slider.scrollLeft = slider.scrollLeft + 500
   }
 
   return (
