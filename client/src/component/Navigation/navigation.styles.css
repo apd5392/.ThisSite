@@ -33,7 +33,15 @@
 }
 .nav-links-container {
   display: flex;
+  justify-content: center;
   align-items: flex-end;
+
+  width: 220px;
+}
+
+.nav-links-container.login {
+  width: 100px;
+  justify-content: space-evenly;
 }
 .nav-link {
   padding: 15px;
@@ -45,4 +53,10 @@
 
 .Title {
   color: rgb(48, 92, 48);
+}
+
+.user-icon {
+  color: rgb(48, 92, 48);
+  font-size: 20px;
+  margin: 15px;
 }

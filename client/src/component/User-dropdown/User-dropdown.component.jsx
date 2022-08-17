@@ -1,6 +1,14 @@
 import './user-dropdown.styles.css'
 import { Link } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { UserContext } from '../../contexts/user.context'
+
 const UserDropDown = () => {
+  const { user, setUser } = useContext(UserContext)
+
+  const setUserLogOut = () => {
+    setUser(null)
+  }
   return (
     <div className="user-dropdown-container">
       <div className="nav-links-containerDropDown">
@@ -14,7 +22,7 @@ const UserDropDown = () => {
         <Link className="nav-link" to="/accountdetail">
           Account
         </Link>
-        <Link className="nav-link" to="/">
+        <Link className="nav-link" to="/" onClick={setUserLogOut}>
           Log Out
         </Link>
       </div>
