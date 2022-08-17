@@ -19,12 +19,7 @@
 .comment-content-box {
   display: flex;
   flex-direction: column;
-
   height: 100px;
   overflow-y: scroll;
 }
 
-.comment-content-box p {
-  white-space: wrap;
-  word-wrap: break-word;
-}
