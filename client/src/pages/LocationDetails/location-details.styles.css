@@ -1,9 +1,14 @@
+.location-main-container.active {
+  background-color: rgb(0, 0, 0, 0.5);
+}
+
 .location-img-main-container {
   width: 1000px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 10px;
+  position: relative;
 }
 
 .img-container.big {

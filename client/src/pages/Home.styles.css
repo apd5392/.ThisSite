@@ -1,3 +1,25 @@
-.Home-container{
-padding: 0 30px;
+.Home-container {
+  padding: 0 30px;
+  width: 100vw;
+  position: relative;
+}
+
+.home-card-slider-first {
+  position: absolute;
+  margin: 50px;
+  top: 90%;
+}
+
+.home-img-container {
+  position: absolute;
+  margin: 90px auto;
+  width: 900px;
+  height: 400px;
+  top: 50px;
+  right: 50px;
+  z-index: -10px;
+}
+
+.home-img-container img {
+  height: 100%;
 }

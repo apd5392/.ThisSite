@@ -24,7 +24,10 @@ const SignUp = () => {
       `${process.env.REACT_APP_BASE_URL}/user/signup`,
       Formfields
     )
-      console.log(newUser)
+
+    console.log(newUser)
+
+
     setFormfields(defaultFormfields)
   }
 
@@ -51,7 +54,8 @@ const SignUp = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-containerUp">
           <label>First Name: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="text"
             onChange={handleChange}
             name="firstName"
@@ -61,7 +65,8 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Last Name: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="text"
             onChange={handleChange}
             name="lastName"
@@ -72,7 +77,8 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Username: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="text"
             onChange={handleChange}
             name="userName"
@@ -82,7 +88,8 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Email: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="email"
             onChange={handleChange}
             name="email"
@@ -93,7 +100,8 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Phone Number: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="text"
             onChange={handleChange}
             name="phoneNumber"
@@ -103,7 +111,8 @@ const SignUp = () => {
         </div>
         <div className="input-containerUp">
           <label>Password: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="password"
             name="password"
             onChange={handleChange}
@@ -114,7 +123,8 @@ const SignUp = () => {
 
         <div className="input-containerUp">
           <label>Confirm Password: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="password"
             name="confirmPassword"
             onChange={passwordValidte}
@@ -124,7 +134,7 @@ const SignUp = () => {
         </div>
 
         {isError && <p>password doesn't match</p>}
-        <button className='signUpbtn'>Sign Up</button>
+        <button className="signUpbtn">Sign Up</button>
       </form>
     </div>
   )

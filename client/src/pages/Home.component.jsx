@@ -5,7 +5,7 @@ import CommentCard from '../component/CommentCard/CommentCard.component'
 import './Home.styles.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import CardSlider2 from '../component/Slider/Slider.component copy'
+import CardSlider2 from '../component/Slider/Slider.component2'
 
 const Home = () => {
   const [locations, setLocations] = useState([])
@@ -26,6 +26,10 @@ const Home = () => {
       <h1>Find places to stay on .ThisSite</h1>
       <p>Discover entire homes and private rooms perfect for any trip.</p>
       <Search />
+      <div className="home-img-container">
+        <img src="https://www.fodors.com/wp-content/uploads/2019/01/take-a-vacation.jpg" />
+      </div>
+
       <CardSlider locationCard={LocationCard} Locations={locations} />
       <CardSlider2 commentCard={CommentCard} Locations={locations} />
     </div>
