@@ -7,14 +7,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { UserProvider } from '../src/contexts/user.context'
 import { LocationProvider } from '../src/contexts/locationdetail.context'
 import { EditProvider } from '../src/contexts/edit.context'
+import { ReserveProvider } from '../src/contexts/reserve.context'
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <LocationProvider>
           <EditProvider>
-            <App />
+            <ReserveProvider>
+              <App />
+            </ReserveProvider>
           </EditProvider>
         </LocationProvider>
       </UserProvider>
