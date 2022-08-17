@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const getLocations = async () => {
       const locations = await axios.get(
-        `http://localhost:3001/api/location`
+        `${process.env.REACT_APP_BASE_URL}/location`
       )
       console.log(locations.data)
       setLocations(locations.data)

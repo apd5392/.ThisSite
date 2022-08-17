@@ -22,7 +22,7 @@ const AccountDetail = () => {
 
     // console.log(userUpdateInput)
 
-    // const newUser = await axios.put(`/user/${user._id}`, userUpdateInput)
+    // const newUser = await axios.put(`http://localhost:3001/api/user/${user._id}`, userUpdateInput)
     // console.log(newUser)
     // if (newUser.status === 200) {
     //   console.log(newUser.data)
