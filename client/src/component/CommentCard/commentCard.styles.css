@@ -15,11 +15,14 @@
   height: 130px;
   border: 2px solid rgb(84, 103, 71, 0.9);
 }
-
+#textwrap{
+    word-break:keep-all;
+    white-space: normal;
+}
 .comment-content-box {
   display: flex;
   flex-direction: column;
   height: 100px;
-  overflow-y: scroll;
+  overflow-x:scroll;
 }
 
