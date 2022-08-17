@@ -6,6 +6,11 @@ import { DateRangePicker } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css'
 
+const defaultSearchLocation = {
+  cityAndState: '',
+  startDate: new Date(),
+  endDate: new Date()
+}
 const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const [address, setAddress] = useState('')
   const [startDate, setStartDate] = useState(new Date())
@@ -17,6 +22,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
     children: 0,
     infant: 0
   })
+  const [searchLocation, setsearchLocation] = useState(defaultSearchLocation)
 
   const selectionRange = {
     startDate: startDate,
@@ -29,8 +35,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
   const selectDateRange = (ranges) => {
     setStartDate(ranges.selection.startDate)
-
-    console.log(ranges.selection)
+    // console.log(ranges.selection)
     setEndDate(ranges.selection.endDate)
   }
 
@@ -57,11 +62,22 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
         operation === 'd' ? (headCounts[type] -= 1) : (headCounts[type] += 1)
     })
   }
+
+  const handleSubmitSearch = () => {
+    setsearchLocation({
+      cityAndState: address,
+      startDate: startDate.toISOString().split('T')[0],
+      endDate: endDate.toISOString().split('T')[0]
+    })
+  }
+
   console.log(address)
   console.log(startDate.toLocaleString('en-US', { month: 'short' }))
 
   // console.log(endDate.LocalDataStirng())
   console.log(endDate.toISOString().split('T')[0])
+
+  console.log(searchLocation)
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (
       <div className="search-container">
@@ -195,7 +211,9 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
           </div>
         )}
 
-        <button className="searchButton">Search</button>
+        <button className="searchButton" onClick={handleSubmitSearch}>
+          Search
+        </button>
       </div>
     )
   } else {

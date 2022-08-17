@@ -12,7 +12,9 @@ const Home = () => {
 
   useEffect(() => {
     const getLocations = async () => {
-      const locations = await axios.get(`${process.env.REACT_APP_BASE_URL}/location`)
+      const locations = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/location`
+      )
       console.log(locations.data)
       setLocations(locations.data)
     }
@@ -26,9 +28,9 @@ const Home = () => {
       <h1>Find places to stay on .ThisSite</h1>
       <p>Discover entire homes and private rooms perfect for any trip.</p>
       <Search />
-      <div className="home-img-container">
+      {/* <div className="home-img-container">
         <img src="https://www.fodors.com/wp-content/uploads/2019/01/take-a-vacation.jpg" />
-      </div>
+      </div> */}
 
       <CardSlider locationCard={LocationCard} Locations={locations} />
       <CardSlider2 commentCard={CommentCard} Locations={locations} />
@@ -39,4 +41,3 @@ const Home = () => {
 export default Home
 
 // Adama put this here since env don't work.. delete when submitting `http://localhost:3005/api/location`
-

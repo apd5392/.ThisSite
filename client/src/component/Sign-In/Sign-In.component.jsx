@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../contexts/user.context'
 
 const initSignInfo = {
   userName: '',
@@ -7,6 +9,7 @@ const initSignInfo = {
 }
 
 const SignIn = () => {
+  const { user, setUser } = useContext(UserContext)
   const [userInfo, setUserInfo] = useState(initSignInfo)
   const { userName, password } = userInfo
 
@@ -18,13 +21,16 @@ const SignIn = () => {
 
   const getUser = async (e) => {
     e.preventDefault()
-    console.log(userInfo)
+
     const getUser = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/user/login`,
       userInfo
     )
     console.log(getUser)
+    const user = await getUser.data
+    setUser(user)
   }
+  console.log(userInfo)
 
   return (
     <div className="sign-container">
@@ -32,7 +38,8 @@ const SignIn = () => {
       <form onSubmit={getUser}>
         <div className="input-containerIn">
           <label>Username: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="text"
             onChange={handleChange}
             name="userName"
@@ -41,7 +48,8 @@ const SignIn = () => {
         </div>
         <div className="input-containerIn">
           <label>Password: </label>
-          <input className='signScreen'
+          <input
+            className="signScreen"
             type="password"
             required
             name="password"
@@ -49,7 +57,7 @@ const SignIn = () => {
             value={password}
           />
         </div>
-        <button className='signInBtn'>Sign In</button>
+        <button className="signInBtn">Sign In</button>
       </form>
     </div>
   )
