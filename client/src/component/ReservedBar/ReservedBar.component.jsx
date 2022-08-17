@@ -5,7 +5,7 @@ import 'react-date-range/dist/theme/default.css'
 import './reservebar.styles.css'
 import { ReserveContext } from '../../contexts/reserve.context'
 import { useNavigate } from 'react-router-dom'
-const ReservedBar = ({ Price }) => {
+const ReservedBar = ({ Price, Selectedlocation }) => {
   const {
     numberOfGuest,
     setnumberOfGuest,
@@ -41,6 +41,7 @@ const ReservedBar = ({ Price }) => {
   const handleSubmitReserve = () => {
     setPrice(Price)
     setDateRange({ startDate: startDate, endDate: endDate })
+    setLocation(Selectedlocation)
     navigate(`/confirmation`)
   }
   const days = (startDate, endDate) => {
