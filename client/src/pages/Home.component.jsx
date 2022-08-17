@@ -29,7 +29,10 @@ const Home = () => {
       <p>Discover entire homes and private rooms perfect for any trip.</p>
       <Search />
       {/* <div className="home-img-container">
-        <img src="https://www.fodors.com/wp-content/uploads/2019/01/take-a-vacation.jpg" />
+        <img src="https://i.imgur.com/rE2ctjK.jpg" />
+      </div>
+      <div className="home-img-container">
+        <img src="https://i.imgur.com/HHxJBpD.jpg" />
       </div> */}
 
       <CardSlider locationCard={LocationCard} Locations={locations} />
