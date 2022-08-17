@@ -212,7 +212,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
         )}
 
         <button className="searchButton" onClick={handleSubmitSearch}>
-          Search
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
     )
