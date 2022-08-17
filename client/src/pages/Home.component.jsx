@@ -33,3 +33,6 @@ const Home = () => {
 }
 
 export default Home
+
+// Adama put this here since env don't work.. delete when submitting `http://localhost:3005/api/location`
+
