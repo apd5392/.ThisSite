@@ -1,24 +1,24 @@
-import { useContext, useState } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../../contexts/user.context'
-import './account.styles.css'
+import { useContext, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/user.context";
+import "./account.styles.css";
 const AccountDetail = () => {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
   const [userUpdateInput, setuserUpdateInput] = useState({
-    email: user ? user.email : '',
-    password: user ? user.password : '',
-    phoneNumber: user ? user.phoneNumber : '',
-    lastName: user ? user.lastName : '',
-    firstName: user ? user.firstName : ''
-  })
+    email: user ? user.email : "",
+    password: user ? user.password : "",
+    phoneNumber: user ? user.phoneNumber : "",
+    lastName: user ? user.lastName : "",
+    firstName: user ? user.firstName : "",
+  });
 
-  const [deleteUser, setDeleteUser] = useState(false)
+  const [deleteUser, setDeleteUser] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const submitUserInput = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // console.log(userUpdateInput)
 
@@ -30,82 +30,89 @@ const AccountDetail = () => {
     //   console.log(user)
     //   e.target.reset()
     // }
-  }
+  };
 
   const handleChange = (e) => {
     setuserUpdateInput({
       ...userUpdateInput,
-      [e.target.name]: e.target.value
-    })
-    console.log(userUpdateInput)
-  }
+      [e.target.name]: e.target.value,
+    });
+    console.log(userUpdateInput);
+  };
 
   const deleteAccount = async () => {
-    // const res = await axios.delete(`/user/${user._id}`)
-    // console.log(res)
+    const res = await axios.delete(`${process.env.REACT_APP_BASE_URL}/user/${user._id}`)
+    console.log(res)
 
-    setDeleteUser(true)
+    setDeleteUser(true);
     setTimeout(() => {
-      navigate(`/home`)
-    }, 3000)
-  }
+      alert("Delete Successful");
+      navigate(`/`);
+    }, 1500);
+  };
 
-  console.log(user)
+  console.log(user);
 
   return (
     <div className="create-account-main">
-      {deleteUser === true ? <div>WE ARE SORRY TO LOSE YOU ....</div> : ''}
+      {deleteUser === true ? (
+        <div>
+          <h1 className="deleteAccMessage">WE ARE SORRY TO LOSE YOU ....</h1>
+        </div>
+      ) : (
+        ""
+      )}
       <div />
-      <h1>UPDAT PERSONAL DETAILS</h1>
+      <h1>Update Account Information</h1>
       <div className="create-account-form">
-        <h1>hello</h1>
         <form onSubmit={submitUserInput} className="create-account-form">
           <input
             type="text"
             name="firstName"
-            placeholder={user ? user.firstName : 'FIRSTNAME'}
+            placeholder={user ? user.firstName : "First Name"}
             onChange={handleChange}
           />
           <input
             type="text"
             name="lastName"
-            placeholder={user ? user.lastName : 'LASTNAME'}
+            placeholder={user ? user.lastName : "Last Name"}
             onChange={handleChange}
           />
           <input
             type="text"
             name=" phoneNumber"
-            placeholder={user ? user.phoneNumber : 'PhoneNumber'}
+            placeholder={user ? user.phoneNumber : "Phone Number"}
             onChange={handleChange}
           />
           <input
             type="text"
             name="email"
-            placeholder={user ? user.email : 'EMAIL'}
+            placeholder={user ? user.email : "Email"}
             onChange={handleChange}
           />
           <input
             type="password"
             name="Password"
-            placeholder="PASSWORD"
+            placeholder="Password*"
             onChange={handleChange}
           />
           <div className="btn-box">
-            <button name="updateBtn" className="btn update-btn">
-              UPDATE
+            <button name="updateBtn" className="acc-update-btn">
+              Update
             </button>
             <button
               value="deleteBtn"
               onClick={deleteAccount}
-              className="btn update-btn"
+              className="acc-delete-btn"
             >
-              DELETE ACCOUNT
+              Delete Account
             </button>
           </div>
+          <p>* = Required Field</p>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AccountDetail
+export default AccountDetail;
