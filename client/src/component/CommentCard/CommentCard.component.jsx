@@ -1,7 +1,7 @@
 import './commentCard.styles.css'
 
 const CommentCard = ({ comment, location }) => {
-  console.log(comment)
+  // console.log(comment)
 
   return comment ? (
     <div className="main-comment-container">
