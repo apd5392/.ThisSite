@@ -14,13 +14,13 @@ const CardSlider = ({
 
   const slideLeft = () => {
     const slider = document.querySelector('.slider')
-    slider.scrollLeft = slider.scrollLeft + 500
+    slider.scrollLeft = slider.scrollLeft - 500
   }
 
   const slideRight = () => {
     const slider = document.querySelector('.slider')
     console.log(slider)
-    slider.scrollLeft = slider.scrollLeft - 500
+    slider.scrollLeft = slider.scrollLeft + 500
   }
 
   return (
