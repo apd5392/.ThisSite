@@ -26,6 +26,7 @@
 }
 
 .review-main-container {
+  display: inline;
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -48,4 +49,8 @@
   right: 20px;
   font-size: 25px;
   color: gray;
+}
+
+.reserved-bar {
+  display: inline-block;
 }

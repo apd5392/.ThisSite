@@ -5,7 +5,7 @@ import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { EditContext } from '../../contexts/edit.context'
 import EditForm from '../../component/EditForm/EditForm.component'
-
+import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
 const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const { isEdit, setIsEdit, comment, setComment } = useContext(EditContext)
@@ -24,6 +24,7 @@ const LocationDetail = () => {
     <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
       <h1>title</h1>
       <h2>{`${add[1]},  ${add[2]}`}</h2>
+
       <div className="location-img-main-container">
         {images.map((img, index) => (
           <div
@@ -36,8 +37,12 @@ const LocationDetail = () => {
       <h3> Hosted by {host.lastName}</h3>
       <h3>{`$ ${price}  per night`}</h3>
       <p>{description}</p>
-      <h3>Reviews... </h3>
-      <button>Leave a comment</button>
+      <h3>Reviews...</h3>
+      <div>
+        <ReservedBar Price={price} />
+      </div>
+      <button className="comment-button">Leave a comment</button>
+
       <div className="review-main-container">
         {Comments.map((comment, index) => (
           <div key={index} className="review-container">
@@ -50,6 +55,7 @@ const LocationDetail = () => {
           </div>
         ))}
       </div>
+
       {isEdit && <EditForm />}
     </div>
   )

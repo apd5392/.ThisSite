@@ -7,6 +7,7 @@ import LocationDetail from './pages/LocationDetails/Location-details.component'
 import HostLocation from './pages/Host-location/Host-location.component'
 import AccountDetail from './pages/Account/Account.component'
 import HostedLocation from './pages/HostedLocation/HostedLocation.component'
+import ConfirmationPage from './pages/ConfirmationPage/Confirmation.component'
 function App() {
   return (
     <Routes>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/auth" element={<Authentication />} />
         <Route path="/accountdetail" element={<AccountDetail />} />
         <Route path="/hostedlocations" element={<HostedLocation />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Route>
     </Routes>
   )

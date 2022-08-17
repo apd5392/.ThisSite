@@ -1,10 +1,12 @@
 import PlacesAutocomplete from 'react-places-autocomplete'
 import './search.styles.css'
 import scriptLoader from 'react-async-script-loader'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { DateRangePicker } from 'react-date-range'
 import 'react-date-range/dist/styles.css' // main css file
 import 'react-date-range/dist/theme/default.css'
+
+import { ReserveContext } from '../../contexts/reserve.context'
 
 const defaultSearchLocation = {
   cityAndState: '',
@@ -12,6 +14,8 @@ const defaultSearchLocation = {
   endDate: new Date()
 }
 const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
+  const { numberOfGuest, setnumberOfGuest, dateRange, setDateRange } =
+    useContext(ReserveContext)
   const [address, setAddress] = useState('')
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
@@ -20,7 +24,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const [headCounts, setHeadCounts] = useState({
     adult: 0,
     children: 0,
-    infant: 0
+    infants: 0
   })
   const [searchLocation, setsearchLocation] = useState(defaultSearchLocation)
 
@@ -55,12 +59,13 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
 
   const decrement = (type, operation) => {
-    console.log(type)
-    setHeadCounts({
-      ...headCounts,
-      [type]:
-        operation === 'd' ? (headCounts[type] -= 1) : (headCounts[type] += 1)
-    })
+    if (headCounts.infants >= 0 && headCounts.infants < 2) {
+      setHeadCounts({
+        ...headCounts,
+        [type]:
+          operation === 'd' ? (headCounts[type] -= 1) : (headCounts[type] += 1)
+      })
+    }
   }
 
   const handleSubmitSearch = () => {
@@ -69,15 +74,10 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
       startDate: startDate.toISOString().split('T')[0],
       endDate: endDate.toISOString().split('T')[0]
     })
+    setDateRange({ startDate: startDate, endDate: endDate })
+    setnumberOfGuest({ ...headCounts })
   }
 
-  console.log(address)
-  console.log(startDate.toLocaleString('en-US', { month: 'short' }))
-
-  // console.log(endDate.LocalDataStirng())
-  console.log(endDate.toISOString().split('T')[0])
-
-  console.log(searchLocation)
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (
       <div className="search-container">
@@ -146,7 +146,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
         </div>
         <div className="addGuest-container" onClick={toggleHeadCounts}>
           <span>
-            {`Adult: ${headCounts.adult} Children: ${headCounts.children}`}
+            {`Adult: ${headCounts.adult} Children: ${headCounts.children} Infants: ${headCounts.infants}`}
           </span>
         </div>
         {openheadCounts && (
@@ -190,19 +190,19 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
               </div>
             </div>
             <div className="panel">
-              <span>Infant</span>
+              <span>Infants</span>
               <div className="btn-box">
                 <button
                   className="btns"
-                  onClick={() => decrement('infant', 'd')}
-                  disabled={headCounts.infant <= 0 ? 'true' : ''}
+                  onClick={() => decrement('infants', 'd')}
+                  disabled={headCounts.infants <= 0 ? 'true' : ''}
                 >
                   -
                 </button>
-                <span className="number">{headCounts.infant}</span>
+                <span className="number">{headCounts.infants}</span>
                 <button
                   className="btns"
-                  onClick={() => decrement('infant', 'i')}
+                  onClick={() => decrement('infants', 'i')}
                 >
                   +
                 </button>
@@ -212,7 +212,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
         )}
 
         <button className="searchButton" onClick={handleSubmitSearch}>
-          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
         </button>
       </div>
     )
