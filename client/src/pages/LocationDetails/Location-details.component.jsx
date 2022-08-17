@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { EditContext } from '../../contexts/edit.context'
 import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
+
 const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const { isEdit, setIsEdit, comment, setComment } = useContext(EditContext)
@@ -39,7 +40,7 @@ const LocationDetail = () => {
       <p>{description}</p>
       <h3>Reviews...</h3>
       <div>
-        <ReservedBar Price={price} />
+        <ReservedBar Price={price} Selectedlocation={selectedlocation} />
       </div>
       <button className="comment-button">Leave a comment</button>
 
