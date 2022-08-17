@@ -23,8 +23,8 @@ const LocationDetail = () => {
 
   return (
     <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
-      <h1>title</h1>
-      <h2>{`${add[1]},  ${add[2]}`}</h2>
+      <h1 className='locationTitle'>Location Name</h1>
+      <h2 className='locationLabel'>{`${add[1]},  ${add[2]}`}</h2>
 
       <div className="location-img-main-container">
         {images.map((img, index) => (
@@ -35,8 +35,8 @@ const LocationDetail = () => {
           </div>
         ))}
       </div>
-      <h3> Hosted by {host.lastName}</h3>
-      <h3>{`$ ${price}  per night`}</h3>
+      <h3 className='postAuthor'> Hosted by {host.lastName}</h3>
+      <h3 className='locationPricePer'>{`$${price}  per night`}</h3>
       <p>{description}</p>
       <h3>Reviews...</h3>
       <div>
@@ -50,7 +50,7 @@ const LocationDetail = () => {
             <div onClick={() => openEdit(comment)}>
               <i class="fas fa-edit edit-icon"></i>
             </div>
-            <h5> likes : {comment.likes}</h5>
+            <h5> Likes : {comment.likes}</h5>
 
             {`comment: ${comment.content}`}
           </div>

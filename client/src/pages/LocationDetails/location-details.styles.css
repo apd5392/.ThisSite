@@ -1,5 +1,6 @@
-.location-main-container.active {
-  background-color: rgb(0, 0, 0, 0.5);
+.location-main-container {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .location-img-main-container {
@@ -38,7 +39,9 @@
   height: 300px;
   position: relative;
   border-radius: 10px;
+  background-color: antiquewhite;
   border: 1px rgba(128, 128, 128, 0.4) solid;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%), 3px 3px 3px rgb(0 0 0 / 20%);
   margin: 10px 20px;
   padding: 10px 10px;
 }
@@ -53,4 +56,26 @@
 
 .reserved-bar {
   display: inline-block;
+}
+
+.comment-button{
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #546747;
+  color: white;
+}
+
+.postAuthor{
+  text-decoration: overline;
+}
+.locationTitle{
+  margin-top: 30px;
+}
+.locationLabel{
+  text-decoration: underline;
+}
+.locationPricePer{
+  font-size: medium;
+  text-decoration: underline;
+  font-style: italic;
 }
