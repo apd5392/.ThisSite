@@ -41,8 +41,8 @@ const AccountDetail = () => {
   };
 
   const deleteAccount = async () => {
-    // const res = await axios.delete(`/user/${user._id}`)
-    // console.log(res)
+    const res = await axios.delete(`${process.env.REACT_APP_BASE_URL}/user/${user._id}`)
+    console.log(res)
 
     setDeleteUser(true);
     setTimeout(() => {

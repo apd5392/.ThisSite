@@ -24,7 +24,7 @@ const SignUp = () => {
       `${process.env.REACT_APP_BASE_URL}/user/signup`,
       Formfields
     )
-
+      console.log(newUser)
     setFormfields(defaultFormfields)
   }
 

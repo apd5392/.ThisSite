@@ -39,7 +39,7 @@ const HostLocation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const newLocation = await axios.post(
-      `http://localhost:3001/api/location/host`,
+      `${process.env.REACT_APP_BASE_URL}/location/host`,
       Formfields
     )
     console.log(newLocation)
