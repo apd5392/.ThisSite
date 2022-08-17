@@ -5,8 +5,9 @@
   justify-content: space-between;
   /* background-color: paleturquoise; */
   background-color: #bbc8ba;
+  margin-bottom: -21px;
 }
-.Home-container{
+.Home-container {
   margin-top: 50px;
 }
 
@@ -30,7 +31,7 @@
   top: 50px;
   left: 180px;
 }
-.nav-links-container{
+.nav-links-container {
   display: flex;
   align-items: flex-end;
 }
@@ -42,6 +43,6 @@
   font-size: 20px;
 }
 
- .Title{
+.Title {
   color: rgb(48, 92, 48);
- }
+}

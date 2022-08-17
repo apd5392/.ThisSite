@@ -1,13 +1,13 @@
-.main-slider-container {
+.main-slider2-container {
   width: 80%;
   height: 250px;
 
   position: relative;
   display: flex;
   align-items: center;
-  margin: 120px 150px 0px 50px;
+  margin: 120px 20px 0px 50px;
   position: absolute;
-  top: 400px;
+  top: 700px;
 }
 
 .slider {

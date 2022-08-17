@@ -1,9 +1,7 @@
-import './slider.styles.css'
+import './slider2.styles.css'
 // import LocationCard from '../LocationCard/LocationCard.component'
 
 const CardSlider2 = ({ commentCard: CommentCard, Locations }) => {
-  const data = [1, 2, 3, 4, 5, 6, 7]
-
   const slideLeft = () => {
     const slider = document.querySelector('.slider2')
     slider.scrollLeft = slider.scrollLeft + 500
@@ -16,7 +14,7 @@ const CardSlider2 = ({ commentCard: CommentCard, Locations }) => {
   }
 
   return (
-    <div className="main-slider-container">
+    <div className="main-slider2-container">
       <div className="left-btn btn" onClick={slideLeft}>
         <i class="fa-solid fa-angles-left"></i>
       </div>

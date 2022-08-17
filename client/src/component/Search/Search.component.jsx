@@ -40,7 +40,6 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
 
   const handleSelect = (value) => {
     setAddress(value)
-    console.log(address)
   }
 
   const toggleCal = () => {
@@ -58,7 +57,11 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
         operation === 'd' ? (headCounts[type] -= 1) : (headCounts[type] += 1)
     })
   }
+  console.log(address)
+  console.log(startDate.toLocaleString('en-US', { month: 'short' }))
 
+  // console.log(endDate.LocalDataStirng())
+  console.log(endDate.toISOString().split('T')[0])
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (
       <div className="search-container">
@@ -77,7 +80,8 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
             }) => (
               <div>
                 <label>Where:</label>
-                <input className='searchbox'
+                <input
+                  className="searchbox"
                   {...getInputProps({
                     placeholder: 'Search Destinations',
                     className: 'location-search-input'
@@ -115,11 +119,13 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
             onClick={toggleCal}
           >{`${startDate.toLocaleDateString()} to ${endDate.toLocaleDateString()}`}</span>
           {openCal && (
-            <DateRangePicker
-              className="date-calender"
-              ranges={[selectionRange]}
-              onChange={selectDateRange}
-            />
+            <div className="date-calender-container">
+              <DateRangePicker
+                className="date-calender"
+                ranges={[selectionRange]}
+                onChange={selectDateRange}
+              />
+            </div>
           )}
         </div>
         <div className="addGuest-container" onClick={toggleHeadCounts}>
@@ -133,14 +139,17 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
               <span>Adult</span>
               <div className="btn-box">
                 <button
-                  className="btn"
+                  className="btns"
                   onClick={() => decrement('adult', 'd')}
                   disabled={headCounts.adult <= 0 ? 'true' : ''}
                 >
                   -
                 </button>
                 <span className="number">{headCounts.adult}</span>
-                <button className="btn" onClick={() => decrement('adult', 'i')}>
+                <button
+                  className="btns"
+                  onClick={() => decrement('adult', 'i')}
+                >
                   +
                 </button>
               </div>
@@ -149,7 +158,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
               <span>Children</span>
               <div className="btn-box">
                 <button
-                  className="btn"
+                  className="btns"
                   onClick={() => decrement('children', 'd')}
                   disabled={headCounts.children <= 0 ? 'true' : ''}
                 >
@@ -157,7 +166,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
                 </button>
                 <span className="number">{headCounts.children}</span>
                 <button
-                  className="btn"
+                  className="btns"
                   onClick={() => decrement('children', 'i')}
                 >
                   +
@@ -168,7 +177,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
               <span>Infant</span>
               <div className="btn-box">
                 <button
-                  className="btn"
+                  className="btns"
                   onClick={() => decrement('infant', 'd')}
                   disabled={headCounts.infant <= 0 ? 'true' : ''}
                 >
@@ -176,7 +185,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
                 </button>
                 <span className="number">{headCounts.infant}</span>
                 <button
-                  className="btn"
+                  className="btns"
                   onClick={() => decrement('infant', 'i')}
                 >
                   +
