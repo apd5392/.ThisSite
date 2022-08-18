@@ -7,6 +7,7 @@ import { EditContext } from '../../contexts/edit.context'
 import { ReserveContext } from '../../contexts/reserve.context'
 import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
+// import { useLocation } from 'react-router-dom'
 
 const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
@@ -14,8 +15,10 @@ const LocationDetail = () => {
   const { dateRange } = useContext(ReserveContext)
   const { address, description, images, price, host, Comments } =
     selectedlocation
-
-  console.log(selectedlocation)
+  // //   const location = useLocation()
+  //   const seteditComment = location.state.seteditComment
+  //   const editComment = location.state.editComment
+  //   console.log(selectedlocation)
   const add = address.split(',')
 
   const openEdit = (comment) => {

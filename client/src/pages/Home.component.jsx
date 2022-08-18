@@ -1,25 +1,28 @@
-import Search from "../component/Search/Search.component";
-import CardSlider from "../component/Slider/Slider.component";
-import LocationCard from "../component/LocationCard/LocationCard.component";
-import CommentCard from "../component/CommentCard/CommentCard.component";
-import "./Home.styles.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import CardSlider2 from "../component/Slider/Slider.component2";
+import Search from '../component/Search/Search.component'
+import CardSlider from '../component/Slider/Slider.component'
+import LocationCard from '../component/LocationCard/LocationCard.component'
+import CommentCard from '../component/CommentCard/CommentCard.component'
+import './Home.styles.css'
+import { useEffect, useState, useContext } from 'react'
+import axios from 'axios'
+import CardSlider2 from '../component/Slider/Slider.component2'
+import { EditContext } from '../contexts/edit.context'
 
 const Home = () => {
-  const [locations, setLocations] = useState([]);
-
+  const [locations, setLocations] = useState([])
+  const { editcomment } = useContext(EditContext)
+  console.log(editcomment)
   useEffect(() => {
     const getLocations = async () => {
-      const locations = await axios.get(`${process.env.REACT_APP_BASE_URL}/location`);
-      console.log(locations.data);
-      setLocations(locations.data);
-    };
-    getLocations();
-  }, []);
+      const locations = await axios.get(`http://localhost:3001/api/location`)
+      console.log(locations.data)
+      setLocations(locations.data)
+    }
+    getLocations()
+  }, [editcomment])
+  console.log(editcomment)
 
-  console.log(locations.Comments);
+  console.log(locations.Comments)
 
   return (
     <div className="Home-container">
@@ -41,9 +44,9 @@ const Home = () => {
       <CardSlider locationCard={LocationCard} Locations={locations} />
       <CardSlider2 commentCard={CommentCard} Locations={locations} />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
 
 // Adama put this here since env don't work.. delete when submitting `http://localhost:3001/api/

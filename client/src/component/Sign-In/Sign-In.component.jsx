@@ -27,7 +27,7 @@ const SignIn = () => {
     setUser(payload)
     setUserInfo(initSignInfo)
     toggleAuthenticated(true)
-    // navigate(`/`)
+    navigate(`/`)
   }
   console.log(userInfo)
   console.log(user)

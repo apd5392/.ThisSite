@@ -4,13 +4,23 @@ export const EditContext = createContext({
   isEdit: false,
   setIsEdit: () => {},
   comment: {},
-  setComment: () => {}
+  setComment: () => {},
+  editcomment: false,
+  seteditComment: () => {}
 })
 
 export const EditProvider = ({ children }) => {
   const [isEdit, setIsEdit] = useState()
   const [comment, setComment] = useState()
-  const value = { isEdit, setIsEdit, comment, setComment }
+  const [editcomment, seteditComment] = useState()
+  const value = {
+    isEdit,
+    setIsEdit,
+    comment,
+    setComment,
+    editcomment,
+    seteditComment
+  }
 
   return <EditContext.Provider value={value}>{children}</EditContext.Provider>
 }
