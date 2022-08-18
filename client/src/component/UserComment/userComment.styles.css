@@ -1,0 +1,32 @@
+.usercomment-main-container {
+  width: 450px;
+  height: 400px;
+  border: 1px solid gray;
+  position: absolute;
+  right: -100%;
+}
+
+.usercomment-main-container.open {
+  right: 50px;
+}
+
+.usercomment-second-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.comment-container {
+  background-color: white;
+  width: 95%;
+  height: 100px;
+}
+
+.usercomment-second-container .rating {
+  width: 30%;
+}
+.comment-btn {
+  display: block;
+}
