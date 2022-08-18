@@ -1,13 +1,20 @@
 .usercomment-main-container {
   width: 450px;
-  height: 400px;
+  height: 350px;
   border: 1px solid gray;
   position: absolute;
   right: -100%;
+  padding: 10px;
+  border-color: #546747;
+  border-width: 5px;
+  border-radius: 10%;
+  font-weight: bold;
 }
 
 .usercomment-main-container.open {
   right: 50px;
+  background-color: white;
+
 }
 
 .usercomment-second-container {
@@ -28,5 +35,18 @@
   width: 30%;
 }
 .comment-btn {
+  margin-top: 20px;
   display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #546747;
+  color: white;
+  width: 50%;
+  align-self: center;
+}
+.ratingBox{
+  margin-top: 10px;
+}
+.userFeedBack{
+  align-self: center;
 }

@@ -60,7 +60,7 @@ const UserComment = () => {
           className="usercomment-second-container"
           onSubmit={handleSubmitComment}
         >
-          <label>Tell us what you think: </label>
+          <label className='userFeedBack'>Tell us what you think: </label>
           <textarea
             type="text"
             onChange={handleChange}
@@ -69,7 +69,7 @@ const UserComment = () => {
             required
             className="comment-container"
           />
-          <label>Rating(0-5): </label>
+          <label className='ratingBox'>Rating: </label>
           <input
             type="number"
             min="0"
@@ -77,6 +77,7 @@ const UserComment = () => {
             onChange={handleChange}
             name="rating"
             value={rating}
+            placeholder="Rate from 0 to 5"
             className="rating"
             required
           />
