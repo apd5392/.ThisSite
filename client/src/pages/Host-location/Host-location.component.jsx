@@ -1,4 +1,3 @@
-
 import './host-location.styles.css'
 import { useState } from 'react'
 import axios from 'axios'
@@ -9,7 +8,7 @@ import { UserContext } from '../../contexts/user.context'
 
 const defaultFormfields = {
   user_Id: 1,
-  name: "",
+  name: '',
   images: [],
   address: '',
   description: '',
@@ -19,45 +18,44 @@ const defaultFormfields = {
 const HostLocation = () => {
   const { user, authenticated } = useContext(UserContext)
   const [Formfields, setFormfields] = useState(defaultFormfields)
-  const { name,images, address, description, price } = Formfields
+  const { name, images, address, description, price } = Formfields
   const [preview, setPreview] = useState([])
   const navigate = useNavigate()
 
-
   const handleChange = (e) => {
-    const files = e.target.files;
-    console.log(files);
-    preViewFiles(files);
-    const { name, value } = e.target;
-    setFormfields({ ...Formfields, [name]: value });
-  };
+    const files = e.target.files
+    console.log(files)
+    preViewFiles(files)
+    const { name, value } = e.target
+    setFormfields({ ...Formfields, [name]: value })
+  }
 
   const preViewFiles = async (files) => {
-    const previewList = [...preview];
+    const previewList = [...preview]
     Array.from(files).forEach((file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
       reader.onloadend = () => {
-        previewList.push(reader.result);
-        setPreview(previewList);
-        setFormfields({ ...Formfields, images: previewList });
-      };
-    });
-  };
+        previewList.push(reader.result)
+        setPreview(previewList)
+        setFormfields({ ...Formfields, images: previewList })
+      }
+    })
+  }
 
   // Adama put this here since env don't work.. delete when submitting `http://localhost:3005/api
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newLocation = await axios.post(
       `http://localhost:3001/api/location/host`,
       Formfields
-    );
-    console.log(newLocation);
-  };
+    )
+    console.log(newLocation)
+  }
 
-  console.log(preview);
-  console.log(Formfields);
+  console.log(preview)
+  console.log(Formfields)
 
   return user && authenticated ? (
     <div className="host-container">
@@ -125,7 +123,6 @@ const HostLocation = () => {
         <button>Host my location</button>
       </form>
     </div>
-
   ) : (
     <div className="protected">
       <h3>Oops! You must be signed in to do that!</h3>
@@ -134,4 +131,4 @@ const HostLocation = () => {
   )
 }
 
-export default HostLocation;
+export default HostLocation
