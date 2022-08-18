@@ -41,52 +41,61 @@ const LocationDetail = () => {
   const leaveCommont = () => {
     setIsLeavingCommont(!isLeavingCommont)
   }
-  // ${isEdit === false ? 'close' : ''}
+
   return (
-    <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
-      <h1 className="locationTitle">{name}</h1>
-      <h2 className="locationLabel">{`${add[1]},  ${add[2]}`}</h2>
+    <div
+      className={`location-main-container ${isEdit ? 'active' : ''} ${
+        isLeavingCommont ? 'active' : ''
+      }`}
+    >
+      <div className="location-second-container">
+        <h1 className="locationTitle">{name}</h1>
+        <h2 className="locationLabel">{`${add[1]},  ${add[2]}`}</h2>
 
-      <div className="location-img-main-container">
-        {images.map((img, index) => (
-          <div
-            className={`img-container ${index % 10 === 0 ? 'big' : 'small'}`}
-          >
-            <img src={img} />
-          </div>
-        ))}
-      </div>
-      <h3 className="postAuthor"> Hosted by {host.lastName}</h3>
-      <h3 className="locationPricePer">{`$${price}  per night`}</h3>
-      <p>{description}</p>
-      <h3>Reviews...</h3>
-      <div>
-        {dateRange && (
-          <ReservedBar Price={price} Selectedlocation={selectedlocation} />
-        )}
-      </div>
-      <button className="comment-button" onClick={leaveCommont}>
-        Leave a comment
-      </button>
-      <UserComment />
-      <div className="review-main-container">
-        {Comments.map((comment, index) => (
-          <div key={index} className="review-container">
-            <div onClick={() => openEdit(comment, index)}>
-              {comment.user_Id === user.id ? (
-                <i class="fas fa-edit edit-icon"></i>
-              ) : (
-                ''
-              )}
+        <div className="location-img-main-container">
+          {images.map((img, index) => (
+            <div
+              className={`img-container ${index % 10 === 0 ? 'big' : 'small'}`}
+            >
+              <img src={img} />
             </div>
-            <h5> Likes : {comment.likes}</h5>
+          ))}
+        </div>
+        <h3 className="postAuthor"> Hosted by {host.lastName}</h3>
+        <h3 className="locationPricePer">{`$${price}  per night`}</h3>
+        <div className="description-container">
+          <p>{description}</p>
+        </div>
 
-            {`comment: ${comment.content}`}
-          </div>
-        ))}
+        <h3>Reviews...</h3>
+        <div>
+          {dateRange && (
+            <ReservedBar Price={price} Selectedlocation={selectedlocation} />
+          )}
+        </div>
+        <button className="comment-button" onClick={leaveCommont}>
+          Leave a comment
+        </button>
+        <UserComment />
+        <div className="review-main-container">
+          {Comments.map((comment, index) => (
+            <div key={index} className="review-container">
+              <div onClick={() => openEdit(comment, index)}>
+                {comment.user_Id === user.id ? (
+                  <i class="fas fa-edit edit-icon"></i>
+                ) : (
+                  ''
+                )}
+              </div>
+              <h5> Likes : {comment.likes}</h5>
+
+              {`comment: ${comment.content}`}
+            </div>
+          ))}
+        </div>
+
+        {isEdit && <EditForm />}
       </div>
-
-      {isEdit && <EditForm />}
     </div>
   )
 }
