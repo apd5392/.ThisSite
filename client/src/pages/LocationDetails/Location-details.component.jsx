@@ -8,17 +8,19 @@ import { ReserveContext } from '../../contexts/reserve.context'
 import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
 import { UserContext } from '../../contexts/user.context'
-
+import UserComment from '../../component/UserComment/UserComment.component'
 const LocationDetail = () => {
   const { user, setUser } = useContext(UserContext)
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const {
     isEdit,
     setIsEdit,
-    comment,
+
     setComment,
-    commentIndex,
-    setCommentIndex
+
+    setCommentIndex,
+    isLeavingCommont,
+    setIsLeavingCommont
   } = useContext(EditContext)
   const { dateRange } = useContext(ReserveContext)
   const { name, address, description, images, price, host, Comments } =
@@ -31,11 +33,15 @@ const LocationDetail = () => {
   console.log(Comments)
 
   const openEdit = (comment, index) => {
-    setIsEdit(true)
+    setIsEdit(!isEdit)
     setComment(comment)
     setCommentIndex(index)
   }
 
+  const leaveCommont = () => {
+    setIsLeavingCommont(!isLeavingCommont)
+  }
+  // ${isEdit === false ? 'close' : ''}
   return (
     <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
       <h1 className="locationTitle">{name}</h1>
@@ -59,8 +65,10 @@ const LocationDetail = () => {
           <ReservedBar Price={price} Selectedlocation={selectedlocation} />
         )}
       </div>
-      <button className="comment-button">Leave a comment</button>
-
+      <button className="comment-button" onClick={leaveCommont}>
+        Leave a comment
+      </button>
+      <UserComment />
       <div className="review-main-container">
         {Comments.map((comment, index) => (
           <div key={index} className="review-container">

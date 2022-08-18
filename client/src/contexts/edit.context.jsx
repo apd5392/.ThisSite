@@ -8,7 +8,9 @@ export const EditContext = createContext({
   editcomment: false,
   seteditComment: () => {},
   commentIndex: '',
-  setCommentIndex: () => {}
+  setCommentIndex: () => {},
+  isLeavingCommont: false,
+  setIsLeavingCommont: () => {}
 })
 
 export const EditProvider = ({ children }) => {
@@ -16,6 +18,7 @@ export const EditProvider = ({ children }) => {
   const [comment, setComment] = useState()
   const [editcomment, seteditComment] = useState()
   const [commentIndex, setCommentIndex] = useState()
+  const [isLeavingCommont, setIsLeavingCommont] = useState()
   const value = {
     isEdit,
     setIsEdit,
@@ -24,7 +27,9 @@ export const EditProvider = ({ children }) => {
     editcomment,
     seteditComment,
     commentIndex,
-    setCommentIndex
+    setCommentIndex,
+    isLeavingCommont,
+    setIsLeavingCommont
   }
 
   return <EditContext.Provider value={value}>{children}</EditContext.Provider>

@@ -32,7 +32,7 @@ const EditForm = () => {
   console.log(commentIndex)
 
   const closeForm = () => {
-    setIsEdit(false)
+    setIsEdit(!isEdit)
   }
   const navigate = useNavigate()
 
@@ -46,10 +46,11 @@ const EditForm = () => {
     const updateComment = res.data[1]
 
     const newSelectedlocation = selectedlocation
+
     newSelectedlocation.Comments.splice(commentIndex, 1, updateComment)
     console.log(newSelectedlocation)
 
-    setIsEdit(false)
+    setIsEdit(!isEdit)
     setSelectedLocation(newSelectedlocation)
   }
 
