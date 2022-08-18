@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { EditContext } from '../../contexts/edit.context'
+import { LocationContext } from '../../contexts/locationdetail.context'
 import axios from 'axios'
 const defaultFormfields = {
   rating: '',
@@ -10,15 +11,25 @@ const defaultFormfields = {
 }
 
 const EditForm = () => {
-  const { isEdit, setIsEdit, comment, editcomment, seteditComment } =
-    useContext(EditContext)
+  const {
+    isEdit,
+    setIsEdit,
+    comment,
+    editcomment,
+    seteditComment,
+    commentIndex,
+    setCommentIndex
+  } = useContext(EditContext)
   const [Formfields, setFormfields] = useState(defaultFormfields)
+  const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const { user_Id, location_Id, rating, content } = Formfields
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormfields({ ...Formfields, [name]: value })
   }
   console.log(comment)
+  console.log(selectedlocation)
+  console.log(commentIndex)
 
   const closeForm = () => {
     setIsEdit(false)
@@ -27,14 +38,19 @@ const EditForm = () => {
 
   const updateComment = async (e) => {
     e.preventDefault()
-    const newUpdate = await axios.put(
+    const res = await axios.put(
       `http://localhost:3001/api/comment/${comment.id}`,
       Formfields
     )
-    console.log(newUpdate)
+
+    const updateComment = res.data[1]
+
+    const newSelectedlocation = selectedlocation
+    newSelectedlocation.Comments.splice(commentIndex, 1, updateComment)
+    console.log(newSelectedlocation)
+
     setIsEdit(false)
-    seteditComment(!editcomment)
-    navigate(`/location/details/${comment.location_Id}`)
+    setSelectedLocation(newSelectedlocation)
   }
 
   return (

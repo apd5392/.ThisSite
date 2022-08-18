@@ -7,11 +7,19 @@ import { EditContext } from '../../contexts/edit.context'
 import { ReserveContext } from '../../contexts/reserve.context'
 import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
-// import { useLocation } from 'react-router-dom'
+import { UserContext } from '../../contexts/user.context'
 
 const LocationDetail = () => {
+  const { user, setUser } = useContext(UserContext)
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
-  const { isEdit, setIsEdit, comment, setComment } = useContext(EditContext)
+  const {
+    isEdit,
+    setIsEdit,
+    comment,
+    setComment,
+    commentIndex,
+    setCommentIndex
+  } = useContext(EditContext)
   const { dateRange } = useContext(ReserveContext)
   const { name, address, description, images, price, host, Comments } =
     selectedlocation
@@ -20,16 +28,18 @@ const LocationDetail = () => {
   //   const editComment = location.state.editComment
   //   console.log(selectedlocation)
   const add = address.split(',')
+  console.log(Comments)
 
-  const openEdit = (comment) => {
+  const openEdit = (comment, index) => {
     setIsEdit(true)
     setComment(comment)
+    setCommentIndex(index)
   }
 
   return (
     <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
-      <h1 className='locationTitle'>{name}</h1>
-      <h2 className='locationLabel'>{`${add[1]},  ${add[2]}`}</h2>
+      <h1 className="locationTitle">{name}</h1>
+      <h2 className="locationLabel">{`${add[1]},  ${add[2]}`}</h2>
 
       <div className="location-img-main-container">
         {images.map((img, index) => (
@@ -40,8 +50,8 @@ const LocationDetail = () => {
           </div>
         ))}
       </div>
-      <h3 className='postAuthor'> Hosted by {host.lastName}</h3>
-      <h3 className='locationPricePer'>{`$${price}  per night`}</h3>
+      <h3 className="postAuthor"> Hosted by {host.lastName}</h3>
+      <h3 className="locationPricePer">{`$${price}  per night`}</h3>
       <p>{description}</p>
       <h3>Reviews...</h3>
       <div>
@@ -54,8 +64,12 @@ const LocationDetail = () => {
       <div className="review-main-container">
         {Comments.map((comment, index) => (
           <div key={index} className="review-container">
-            <div onClick={() => openEdit(comment)}>
-              <i class="fas fa-edit edit-icon"></i>
+            <div onClick={() => openEdit(comment, index)}>
+              {comment.user_Id === user.id ? (
+                <i class="fas fa-edit edit-icon"></i>
+              ) : (
+                ''
+              )}
             </div>
             <h5> Likes : {comment.likes}</h5>
 
