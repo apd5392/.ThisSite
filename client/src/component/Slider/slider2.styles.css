@@ -1,6 +1,6 @@
 .main-slider2-container {
   width: 90%;
-  height: 350px;
+  height: 360px;
   position: relative;
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@
 
 .comment-container {
   width: 320px;
-  height: 300px;
+  height: 350px;
   background-color: antiquewhite;
   display: inline-block;
   margin-left: 10px;
