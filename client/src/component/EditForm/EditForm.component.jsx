@@ -59,11 +59,9 @@ const EditForm = () => {
       className={`edit-form-main-container ${isEdit === false ? 'close' : ''}`}
     >
       <i class="fa-solid fa-xmark" onClick={closeForm}></i>
-      <h5>User Id:{comment.user_Id} </h5>
-      <h5> Location Id :{comment.location_Id} </h5>
       <div className="input-edit-container">
         <form onSubmit={updateComment}>
-          <label>Tell us what you think: </label>
+          <label> <h3>Hey {comment.commentCreator.firstName} tell us what you think! </h3></label>
           <textarea
             type="text"
             onChange={handleChange}
@@ -73,7 +71,7 @@ const EditForm = () => {
             required
             className="text-container"
           />
-          <label>Rating(0-5): </label>
+          <label>Rating: </label>
           <input
             type="number"
             min="0"
