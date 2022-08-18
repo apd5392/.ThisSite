@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/user.context'
 
-const UserDropDown = () => {
+const UserDropDown = ({ setToggleuser, Toggleuser }) => {
   const { user, setUser } = useContext(UserContext)
 
   const setUserLogOut = () => {
     setUser(null)
+    setToggleuser(!Toggleuser)
   }
   return (
     <div className="user-dropdown-container">

@@ -1,18 +1,28 @@
-import "./host-location.styles.css";
-import { useState } from "react";
-import axios from "axios";
+
+import './host-location.styles.css'
+import { useState } from 'react'
+import axios from 'axios'
+import { Navigate, useNavigate } from 'react-router-dom'
+
+import { useContext } from 'react'
+import { UserContext } from '../../contexts/user.context'
+
 const defaultFormfields = {
   user_Id: 1,
   name: "",
   images: [],
-  address: "",
-  description: "",
-  price: "",
-};
+  address: '',
+  description: '',
+  price: ''
+}
+
 const HostLocation = () => {
-  const [Formfields, setFormfields] = useState(defaultFormfields);
-  const { name, images, address, description, price } = Formfields;
-  const [preview, setPreview] = useState([]);
+  const { user, authenticated } = useContext(UserContext)
+  const [Formfields, setFormfields] = useState(defaultFormfields)
+  const { name,images, address, description, price } = Formfields
+  const [preview, setPreview] = useState([])
+  const navigate = useNavigate()
+
 
   const handleChange = (e) => {
     const files = e.target.files;
@@ -49,7 +59,7 @@ const HostLocation = () => {
   console.log(preview);
   console.log(Formfields);
 
-  return (
+  return user && authenticated ? (
     <div className="host-container">
       <h1>Please fill out details</h1>
       <form onSubmit={handleSubmit}>
@@ -115,7 +125,13 @@ const HostLocation = () => {
         <button>Host my location</button>
       </form>
     </div>
-  );
-};
+
+  ) : (
+    <div className="protected">
+      <h3>Oops! You must be signed in to do that!</h3>
+      <button onClick={() => navigate('/auth')}>Sign In</button>
+    </div>
+  )
+}
 
 export default HostLocation;

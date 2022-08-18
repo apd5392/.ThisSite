@@ -43,7 +43,9 @@ const Navigation = () => {
             </Link>
           )}
         </div>
-        {toggleuser && <UserDropDown />}
+        {toggleuser && (
+          <UserDropDown setToggleuser={setToggleuser} Toggleuser={toggleuser} />
+        )}
       </div>
       <Outlet />
     </Fragment>
