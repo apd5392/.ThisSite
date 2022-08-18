@@ -41,7 +41,7 @@ const AccountDetail = () => {
   };
 
   const deleteAccount = async () => {
-    const res = await axios.delete(`${process.env.REACT_APP_BASE_URL}/user/${user._id}`)
+    const res = await axios.delete(`http://localhost:3001/api/user/${user._id}`)
     console.log(res)
 
     setDeleteUser(true);

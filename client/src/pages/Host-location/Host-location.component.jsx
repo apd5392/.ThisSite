@@ -1,52 +1,53 @@
-import './host-location.styles.css'
-import { useState } from 'react'
-import axios from 'axios'
+import "./host-location.styles.css";
+import { useState } from "react";
+import axios from "axios";
 const defaultFormfields = {
   user_Id: 1,
+  name: "",
   images: [],
-  address: '',
-  description: '',
-  price: ''
-}
+  address: "",
+  description: "",
+  price: "",
+};
 const HostLocation = () => {
-  const [Formfields, setFormfields] = useState(defaultFormfields)
-  const { images, address, description, price } = Formfields
-  const [preview, setPreview] = useState([])
+  const [Formfields, setFormfields] = useState(defaultFormfields);
+  const { name, images, address, description, price } = Formfields;
+  const [preview, setPreview] = useState([]);
 
   const handleChange = (e) => {
-    const files = e.target.files
-    console.log(files)
-    preViewFiles(files)
-    const { name, value } = e.target
-    setFormfields({ ...Formfields, [name]: value })
-  }
+    const files = e.target.files;
+    console.log(files);
+    preViewFiles(files);
+    const { name, value } = e.target;
+    setFormfields({ ...Formfields, [name]: value });
+  };
 
   const preViewFiles = async (files) => {
-    const previewList = [...preview]
+    const previewList = [...preview];
     Array.from(files).forEach((file) => {
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
       reader.onloadend = () => {
-        previewList.push(reader.result)
-        setPreview(previewList)
-        setFormfields({ ...Formfields, images: previewList })
-      }
-    })
-  }
+        previewList.push(reader.result);
+        setPreview(previewList);
+        setFormfields({ ...Formfields, images: previewList });
+      };
+    });
+  };
 
   // Adama put this here since env don't work.. delete when submitting `http://localhost:3005/api
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newLocation = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/location/host`,
+      `http://localhost:3001/api/location/host`,
       Formfields
-    )
-    console.log(newLocation)
-  }
+    );
+    console.log(newLocation);
+  };
 
-  console.log(preview)
-  console.log(Formfields)
+  console.log(preview);
+  console.log(Formfields);
 
   return (
     <div className="host-container">
@@ -69,6 +70,16 @@ const HostLocation = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="input-containerUp">
+          <label>Location Name: </label>
+          <input
+            type="text"
+            onChange={handleChange}
+            name="name"
+            value={name}
+            required
+          />
         </div>
         <div className="input-containerUp">
           <label>Address: </label>
@@ -104,7 +115,7 @@ const HostLocation = () => {
         <button>Host my location</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default HostLocation
+export default HostLocation;

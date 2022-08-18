@@ -13,7 +13,7 @@ const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const { isEdit, setIsEdit, comment, setComment } = useContext(EditContext)
   const { dateRange } = useContext(ReserveContext)
-  const { address, description, images, price, host, Comments } =
+  const { name, address, description, images, price, host, Comments } =
     selectedlocation
   // //   const location = useLocation()
   //   const seteditComment = location.state.seteditComment
@@ -28,7 +28,7 @@ const LocationDetail = () => {
 
   return (
     <div className={`location-main-container ${isEdit ? 'active' : ''}`}>
-      <h1 className='locationTitle'>Location Name</h1>
+      <h1 className='locationTitle'>{name}</h1>
       <h2 className='locationLabel'>{`${add[1]},  ${add[2]}`}</h2>
 
       <div className="location-img-main-container">
