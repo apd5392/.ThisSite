@@ -70,16 +70,16 @@ const ConfirmationPage = () => {
           <img src={location.images[2]} />
         </div>
         <div className="confirmation-content-container">
-          <p>Location Address: {location.address}</p>
+          <p className='locationAddress'>Address: {location.address}</p>
           <p>
-            {`$ ${location.price} x  ${days} 
-            Nights`}
+            {`$${location.price} x ${days} Days (${days -1}
+            Nights)`}
           </p>
-          <p>{total}</p>
-          <p>{`Tax : $ ${totalTax}`}</p>
-          <p>Total: $ {totalPrice}</p>
+          <p className='total'>Subtotal: ${total}</p>
+          <p className='tax'>{`Tax : $${totalTax}`}</p>
+          <p className='totalprice'>Total: ${totalPrice}</p>
         </div>
-        <button onClick={handleSubmitBook}>Book Your Reservation</button>
+        <button classname="confirm-button" onClick={handleSubmitBook}>Book Your Reservation</button>
       </div>
     </div>
   )
