@@ -17,25 +17,14 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
-        {/* <Route
-          path="locationdetails/:locationid"
-          element={<LocationDetail />}
-        /> */}
-        {/* <Route path="/hostedlocations" />
-       
-        <Route path="/account" /> */}
+        <Route path="/account" />
         <Route path="/host" element={<HostLocation />} />
         <Route path="/location/details/:id" element={<LocationDetail />} />
         <Route path="/auth" element={<Authentication />} />
         <Route path="/accountdetail" element={<AccountDetail />} />
         <Route path="/hostedlocations" element={<HostedLocation />} />
-
         <Route path="/confirmation" element={<ConfirmationPage />} />
-
-        <Route path="/searchresults/" element={<SearchResults />} />
-
-
-
+        <Route path="/searchresults" element={<SearchResults />} />
       </Route>
     </Routes>
   )

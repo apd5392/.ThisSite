@@ -23,8 +23,9 @@ const ReservedBar = ({ Price, Selectedlocation }) => {
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
-    key: "selection",
-  };
+    key: 'selection'
+  }
+  console.log(dateRange)
 
   const navigate = useNavigate();
 
@@ -50,7 +51,7 @@ const ReservedBar = ({ Price, Selectedlocation }) => {
     return totalDays;
   };
 
-  console.log(startDate.toLocaleString("en-US", { month: "short" }));
+
 
   // console.log(endDate.LocalDataStirng())
 

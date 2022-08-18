@@ -4,16 +4,18 @@ import { LocationContext } from '../../contexts/locationdetail.context'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { EditContext } from '../../contexts/edit.context'
+import { ReserveContext } from '../../contexts/reserve.context'
 import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
 
 const LocationDetail = () => {
   const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
   const { isEdit, setIsEdit, comment, setComment } = useContext(EditContext)
+  const { dateRange } = useContext(ReserveContext)
   const { address, description, images, price, host, Comments } =
     selectedlocation
 
-  console.log(Comments)
+  console.log(selectedlocation)
   const add = address.split(',')
 
   const openEdit = (comment) => {
@@ -40,7 +42,9 @@ const LocationDetail = () => {
       <p>{description}</p>
       <h3>Reviews...</h3>
       <div>
-        <ReservedBar Price={price} Selectedlocation={selectedlocation} />
+        {dateRange && (
+          <ReservedBar Price={price} Selectedlocation={selectedlocation} />
+        )}
       </div>
       <button className="comment-button">Leave a comment</button>
 
