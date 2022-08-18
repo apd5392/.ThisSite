@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 export const ReserveContext = createContext({
   numberOfGuest: {},
   setnumberOfGuest: () => {},
-  dateRange: {},
+  dateRange: null,
   setDateRange: () => {},
   location: {},
   setLocation: () => {},
@@ -13,7 +13,7 @@ export const ReserveContext = createContext({
 
 export const ReserveProvider = ({ children }) => {
   const [numberOfGuest, setnumberOfGuest] = useState({})
-  const [dateRange, setDateRange] = useState({})
+  const [dateRange, setDateRange] = useState(null)
   const [location, setLocation] = useState({})
   const [price, setPrice] = useState()
 

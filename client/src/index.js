@@ -8,6 +8,7 @@ import { UserProvider } from '../src/contexts/user.context'
 import { LocationProvider } from '../src/contexts/locationdetail.context'
 import { EditProvider } from '../src/contexts/edit.context'
 import { ReserveProvider } from '../src/contexts/reserve.context'
+import { SearchResultProvider } from '../src/contexts/searchresult.context'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
@@ -17,7 +18,9 @@ root.render(
         <LocationProvider>
           <EditProvider>
             <ReserveProvider>
-              <App />
+              <SearchResultProvider>
+                <App />
+              </SearchResultProvider>
             </ReserveProvider>
           </EditProvider>
         </LocationProvider>

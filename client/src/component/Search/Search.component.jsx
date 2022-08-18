@@ -1,21 +1,24 @@
 import PlacesAutocomplete from 'react-places-autocomplete'
-import './search.styles.css'
 import scriptLoader from 'react-async-script-loader'
 import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { DateRangePicker } from 'react-date-range'
-import 'react-date-range/dist/styles.css' // main css file
-import 'react-date-range/dist/theme/default.css'
 
 import { ReserveContext } from '../../contexts/reserve.context'
-
+import { SearchResultContext } from '../../contexts/searchresult.context'
+import axios from 'axios'
+import './search.styles.css'
+import 'react-date-range/dist/styles.css' // main css file
+import 'react-date-range/dist/theme/default.css'
 const defaultSearchLocation = {
-  cityAndState: '',
-  startDate: new Date(),
-  endDate: new Date()
+  cityandstate: '',
+  start_date: new Date(),
+  end_date: new Date()
 }
 const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   const { numberOfGuest, setnumberOfGuest, dateRange, setDateRange } =
     useContext(ReserveContext)
+  const { searchResult, setSearchResult } = useContext(SearchResultContext)
   const [address, setAddress] = useState('')
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
@@ -28,6 +31,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   })
   const [searchLocation, setsearchLocation] = useState(defaultSearchLocation)
 
+  const navigate = useNavigate()
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -67,16 +71,32 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
       })
     }
   }
+  console.log(searchResult)
 
-  const handleSubmitSearch = () => {
+  const handleSubmitSearch = async () => {
     setsearchLocation({
-      cityAndState: address,
-      startDate: startDate.toISOString().split('T')[0],
-      endDate: endDate.toISOString().split('T')[0]
+      cityandstate: address,
+      start_date: startDate.toISOString().split('T')[0],
+      end_date: endDate.toISOString().split('T')[0]
     })
-    setDateRange({ startDate: startDate, endDate: endDate })
+    const result = await axios.post(
+      `http://localhost:3001/api/location/search`,
+      searchLocation
+    )
+    const searchResult = await result.data
+    console.log(searchResult)
+
+    setSearchResult(searchResult)
+
+    setDateRange({
+      startDate: startDate,
+      endDate: endDate
+    })
     setnumberOfGuest({ ...headCounts })
+    navigate(`/searchresults`)
   }
+  console.log(searchResult)
+  console.log(dateRange)
 
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (

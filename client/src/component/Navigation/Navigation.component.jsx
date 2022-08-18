@@ -15,6 +15,7 @@ const Navigation = () => {
   const toggleUserIcon = () => {
     setToggleuser(!toggleuser)
   }
+  console.log(user)
   return (
     <Fragment>
       <div className="navigation">

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { RegisterUser } from '../../services/Auth'
 
 const defaultFormfields = {
   userName: '',
@@ -20,14 +21,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(Formfields)
-    const newUser = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/user/signup`,
-      Formfields
-    )
-
+    const newUser = await RegisterUser(Formfields)
     console.log(newUser)
-
-
     setFormfields(defaultFormfields)
   }
 
