@@ -10,8 +10,6 @@ const SearchResults = () => {
       {searchResult.map((location) => (
         <LocationCard2 Location={location} key={location.id} />
       ))}
-
-      <h1>Welcome</h1>
     </div>
   )
 }

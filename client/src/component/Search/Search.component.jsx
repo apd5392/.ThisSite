@@ -48,8 +48,11 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
 
   const handleChange = (value) => {
+    console.log(value)
     setAddress(value)
   }
+
+  console.log(address)
 
   const handleSelect = (value) => {
     setAddress(value)
@@ -71,9 +74,10 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
       })
     }
   }
-  console.log(searchResult)
 
   const handleSubmitSearch = async () => {
+    console.log(`in the submit search ${address}`)
+
     setsearchLocation({
       cityandstate: address,
       start_date: startDate.toISOString().split('T')[0],
@@ -81,7 +85,11 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
     })
     const result = await axios.post(
       `http://localhost:3001/api/location/search`,
-      searchLocation
+      {
+        cityandstate: address,
+        start_date: startDate.toISOString().split('T')[0],
+        end_date: endDate.toISOString().split('T')[0]
+      }
     )
     const searchResult = await result.data
     console.log(searchResult)
@@ -97,6 +105,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
   }
   console.log(searchResult)
   console.log(dateRange)
+  console.log(searchLocation)
 
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (
