@@ -47,6 +47,9 @@
 .ratingBox{
   margin-top: 10px;
 }
+.rating{
+  border-radius: 10px;
+}
 .userFeedBack{
   align-self: center;
 }
