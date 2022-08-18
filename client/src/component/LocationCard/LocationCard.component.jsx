@@ -12,14 +12,13 @@ const LocationCard = ({ location }) => {
 
     navigate(`/location/details/${location.id}`)
   }
-  console.log(location)
 
   return (
     <div className="main-location-container" onClick={selectlocation}>
       <img src={location.images[0]} />
-      <div className="content-box">
+      <div>
         <p>{location.address}</p>
-        <span> $ {location.price} per night</span>
+        <span>rating</span>
       </div>
     </div>
   )

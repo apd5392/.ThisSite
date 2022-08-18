@@ -1,11 +1,7 @@
 import './slider.styles.css'
 // import LocationCard from '../LocationCard/LocationCard.component'
 
-const CardSlider = ({
-  locationCard: LocationCard,
-
-  Locations
-}) => {
+const CardSlider = ({ locationCard: LocationCard, Locations }) => {
   // const { locationCard: LocationCard } = props
   // const { Locations } = props
 

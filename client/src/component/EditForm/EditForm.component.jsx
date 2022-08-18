@@ -10,7 +10,8 @@ const defaultFormfields = {
 }
 
 const EditForm = () => {
-  const { isEdit, setIsEdit, comment } = useContext(EditContext)
+  const { isEdit, setIsEdit, comment, editcomment, seteditComment } =
+    useContext(EditContext)
   const [Formfields, setFormfields] = useState(defaultFormfields)
   const { user_Id, location_Id, rating, content } = Formfields
   const handleChange = (e) => {
@@ -32,6 +33,7 @@ const EditForm = () => {
     )
     console.log(newUpdate)
     setIsEdit(false)
+    seteditComment(!editcomment)
     navigate(`/location/details/${comment.location_Id}`)
   }
 
