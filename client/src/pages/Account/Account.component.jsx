@@ -22,7 +22,7 @@ const AccountDetail = () => {
     e.preventDefault()
     console.log(userUpdateInput)
     const newUser = await axios.put(
-      `http://localhost:3001/api/user/${user.id}`,
+      `${process.env.REACT_APP_BASE_URL}user/${user.id}`,
       userUpdateInput
     )
     console.log(newUser)
@@ -48,7 +48,9 @@ const AccountDetail = () => {
   }
 
   const deleteAccount = async () => {
-    const res = await axios.delete(`http://localhost:3001/api/user/${user.id}`)
+    const res = await axios.delete(
+      `${process.env.REACT_APP_BASE_URL}/user/${user.id}`
+    )
     console.log(res)
 
     setDeleteUser(true)

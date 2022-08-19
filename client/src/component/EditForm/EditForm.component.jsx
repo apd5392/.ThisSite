@@ -40,7 +40,7 @@ const EditForm = () => {
     console.log(Formfields)
     e.preventDefault()
     const res = await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/api/comment/${comment.id}`,
+      `${process.env.REACT_APP_BASE_URL}/comment/${comment.id}`,
       Formfields
     )
     console.log(res.data)
@@ -64,7 +64,12 @@ const EditForm = () => {
       <i class="fa-solid fa-xmark" onClick={closeForm}></i>
       <div className="input-edit-container">
         <form onSubmit={updateComment}>
-          <label> <h3>Hey {comment.commentCreator.firstName} tell us what you think! </h3></label>
+          <label>
+            {' '}
+            <h3>
+              Hey {comment.commentCreator.firstName} tell us what you think!{' '}
+            </h3>
+          </label>
           <textarea
             type="text"
             onChange={handleChange}
