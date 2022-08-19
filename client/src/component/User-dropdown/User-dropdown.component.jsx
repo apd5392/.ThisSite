@@ -19,6 +19,9 @@ const UserDropDown = ({ setToggleuser, Toggleuser }) => {
         <Link className="nav-link" to="/host">
           Host your home
         </Link>
+        <Link className="nav-link" to="/bookedlocation">
+          Reservation
+        </Link>
 
         <Link className="nav-link" to="/accountdetail">
           Account
