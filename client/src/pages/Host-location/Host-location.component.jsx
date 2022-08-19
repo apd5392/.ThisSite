@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../contexts/user.context'
 
 const defaultFormfields = {
-  user_Id: 1,
+  user_Id: '',
   name: '',
   images: [],
   address: '',
@@ -38,7 +38,7 @@ const HostLocation = () => {
       reader.onloadend = () => {
         previewList.push(reader.result)
         setPreview(previewList)
-        setFormfields({ ...Formfields, images: previewList })
+        setFormfields({ ...Formfields, images: previewList, user_Id: user.id })
       }
     })
   }

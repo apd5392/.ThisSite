@@ -16,12 +16,9 @@ const HostedLocation = () => {
         `http://localhost:3001/api/location/hosted/${user.id}`
       )
       const newHostedlocation = await res.data
-      console.log(res)
-      console.log(newHostedlocation)
-      const list = [...hostedLocation, ...newHostedlocation]
 
-      setHostedLocation(list)
-      //
+      console.log(newHostedlocation)
+      setUser(newHostedlocation[0])
     }
     getHostedLocation()
   }, [])
@@ -38,10 +35,10 @@ const HostedLocation = () => {
             </div>
 
             <div className="hostedlocation-content-container">
-              <p>Name:</p>
+              <p className="location-name">{`${location.name}`}</p>
               <p>{`Address: ${location.address}`}</p>
               <p>{`Description: ${location.description}`}</p>
-              <p>{`Price: ${location.price}`}</p>
+              <p>{`Price: $ ${location.price}`}</p>
             </div>
           </div>
         ))}
