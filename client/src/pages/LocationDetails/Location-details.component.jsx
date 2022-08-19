@@ -9,15 +9,16 @@ import EditForm from '../../component/EditForm/EditForm.component'
 import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
 import { UserContext } from '../../contexts/user.context'
 import UserComment from '../../component/UserComment/UserComment.component'
+import like from '../../assets/heart-like.png'
 const LocationDetail = () => {
   const { user, setUser } = useContext(UserContext)
-  const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
+  const { selectedlocation, setSelectedLocation, stateAndCity } =
+    useContext(LocationContext)
+  const { likes, toggleLikes } = useState()
   const {
     isEdit,
     setIsEdit,
-
     setComment,
-
     setCommentIndex,
     isLeavingCommont,
     setIsLeavingCommont
@@ -29,8 +30,6 @@ const LocationDetail = () => {
   //   const seteditComment = location.state.seteditComment
   //   const editComment = location.state.editComment
   //   console.log(selectedlocation)
-  const add = address.split(',')
-  console.log(Comments)
 
   const openEdit = (comment, index) => {
     setIsEdit(!isEdit)
@@ -41,6 +40,9 @@ const LocationDetail = () => {
   const leaveCommont = () => {
     setIsLeavingCommont(!isLeavingCommont)
   }
+  const calLikes = (comment, index) => {
+    console.log('hello')
+  }
 
   return (
     <div
@@ -50,7 +52,7 @@ const LocationDetail = () => {
     >
       <div className="location-second-container">
         <h1 className="locationTitle">{name}</h1>
-        <h2 className="locationLabel">{`${add[1]},  ${add[2]}`}</h2>
+        <h2 className="locationLabel">{`${stateAndCity.city}, ${stateAndCity.state}`}</h2>
 
         <div className="location-img-main-container">
           {images.map((img, index) => (
@@ -78,20 +80,31 @@ const LocationDetail = () => {
         </button>
         <UserComment />
         <div className="review-main-container">
-          {Comments.map((comment, index) => (
-            <div key={index} className="review-container">
-              <div onClick={() => openEdit(comment, index)}>
-                {comment.user_Id === user.id ? (
-                  <i class="fas fa-edit edit-icon"></i>
-                ) : (
-                  ''
-                )}
-              </div>
-              <h5> Likes : {comment.likes}</h5>
+          {Comments &&
+            Comments.map((comment, index) => (
+              <div key={index} className="review-container">
+                <div onClick={() => openEdit(comment, index)}>
+                  {comment.user_Id === user.id ? (
+                    <i class="fas fa-edit edit-icon"></i>
+                  ) : (
+                    ''
+                  )}
+                </div>
+                <h5> Likes : {comment.likes}</h5>
 
-              {`comment: ${comment.content}`}
-            </div>
-          ))}
+                {`comment: ${comment.content}`}
+                <div className="like-box">
+                  <div className="like-btn-container">
+                    <img
+                      src={like}
+                      onClick={() => calLikes(comment.id, index)}
+                    />
+
+                    <h5> {comment.likes}</h5>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
 
         {isEdit && <EditForm />}
