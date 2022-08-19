@@ -14,14 +14,13 @@ const AccountDetail = () => {
   });
 
   const [deleteUser, setDeleteUser] = useState(false);
+  const [updateUser, setUser] = useState(false);
 
   const navigate = useNavigate();
 
   const submitUserInput = async (e) => {
     e.preventDefault();
-
     console.log(userUpdateInput)
-
     const newUser = await axios.put(`http://localhost:3001/api/user/${user.id}`, userUpdateInput)
     console.log(newUser)
     if (newUser.status === 200) {
