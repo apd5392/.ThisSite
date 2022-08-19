@@ -52,8 +52,8 @@ const ConfirmationPage = () => {
     await setBooking({
       user_id: user.id,
       location_id: location.id,
-      start_date: dateRange.startDate.toISOString().split('T')[0],
-      end_date: dateRange.endDate.toISOString().split('T')[0]
+      start_date: JSON.stringify(dateRange.startDate.toISOString().split('T')[0]),
+      end_date: JSON.stringify(dateRange.endDate.toISOString().split('T')[0])
     })
     const bookingResult = await axios.post(
       `http://localhost:3001/api/booking`,

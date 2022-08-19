@@ -23,7 +23,6 @@ const SignIn = () => {
     e.preventDefault()
     const payload = await SignInUser(userInfo)
     console.log(payload)
-
     setUser(payload)
     setUserInfo(initSignInfo)
     toggleAuthenticated(true)
