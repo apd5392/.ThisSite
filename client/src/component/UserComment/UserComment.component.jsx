@@ -40,11 +40,11 @@ const UserComment = () => {
       `http://localhost:3001/api/comment`,
       Formfields
     )
-    console.log(res.data)
+    const newComment = res.data
 
     const newSelectedlocation = selectedlocation
 
-    newSelectedlocation.Comments.push(res.data)
+    newSelectedlocation.Comments.push(newComment)
     console.log(newSelectedlocation)
 
     setSelectedLocation(newSelectedlocation)

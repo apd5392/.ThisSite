@@ -2,12 +2,6 @@ import './slider.styles.css'
 // import LocationCard from '../LocationCard/LocationCard.component'
 
 const CardSlider = ({ locationCard: LocationCard, Locations }) => {
-  // const { locationCard: LocationCard } = props
-  // const { Locations } = props
-
-  // console.log(Locations)
-  const data = [1, 2, 3, 4, 5, 6, 7]
-
   const slideLeft = () => {
     const slider = document.querySelector('.slider')
     slider.scrollLeft = slider.scrollLeft - 500

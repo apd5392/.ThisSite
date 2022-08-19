@@ -37,15 +37,18 @@ const EditForm = () => {
   const navigate = useNavigate()
 
   const updateComment = async (e) => {
+    console.log(Formfields)
     e.preventDefault()
     const res = await axios.put(
       `http://localhost:3001/api/comment/${comment.id}`,
       Formfields
     )
+    console.log(res.data)
 
-    const updateComment = res.data[1]
+    const updateComment = await res.data
 
     const newSelectedlocation = selectedlocation
+    console.log(newSelectedlocation.Comments)
 
     newSelectedlocation.Comments.splice(commentIndex, 1, updateComment)
     console.log(newSelectedlocation)

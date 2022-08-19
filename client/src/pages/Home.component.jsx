@@ -11,7 +11,6 @@ import { EditContext } from '../contexts/edit.context'
 const Home = () => {
   const [locations, setLocations] = useState([])
   const { editcomment } = useContext(EditContext)
-  console.log(editcomment)
 
   useEffect(() => {
     const getLocations = async () => {
@@ -21,9 +20,8 @@ const Home = () => {
     }
     getLocations()
   }, [])
-  console.log(editcomment)
 
-  console.log(locations.Comments)
+  console.log(locations)
 
   return (
     <div className="Home-container">
