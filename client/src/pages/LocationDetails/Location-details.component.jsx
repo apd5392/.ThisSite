@@ -44,19 +44,37 @@ const LocationDetail = () => {
   }
 
   const calLikes = async (commentId, index) => {
-    console.log(commentId)
-    const res = await axios.get(
-      `http://localhost:3001/api/comment/like/${commentId}`
-    )
-    const updatedComment = await res.data
-    console.log(updatedComment)
-    const newSelectedlocation = selectedlocation
+    const likeStatus = document.querySelector('.like-btn-container')
+    const likeId = document.getElementById(index)
+    if (likeStatus.classList.contains('disactive')) {
+      const res = await axios.get(
+        `http://localhost:3001/api/comment/like/${commentId}`
+      )
+      const updatedComment = await res.data
+      console.log(updatedComment)
+      const newSelectedlocation = selectedlocation
 
-    newSelectedlocation.Comments.splice(index, 1, updatedComment)
-    console.log(newSelectedlocation)
+      newSelectedlocation.Comments.splice(index, 1, updatedComment)
+      console.log(newSelectedlocation)
 
-    setSelectedLocation(newSelectedlocation)
-    toggleLikes(!likes)
+      setSelectedLocation(newSelectedlocation)
+      likeId.style.backgroundColor = '#fab73d'
+      toggleLikes(!likes)
+    } else {
+      const res = await axios.get(
+        `http://localhost:3001/api/comment/dislike/${commentId}`
+      )
+      const updatedComment = await res.data
+      console.log(updatedComment)
+      const newSelectedlocation = selectedlocation
+
+      newSelectedlocation.Comments.splice(index, 1, updatedComment)
+      console.log(newSelectedlocation)
+
+      setSelectedLocation(newSelectedlocation)
+      likeId.style.backgroundColor = 'transparent'
+      toggleLikes(!likes)
+    }
   }
   console.log(selectedlocation)
 
@@ -112,7 +130,12 @@ const LocationDetail = () => {
 
               {`comment: ${comment.content}`}
               <div className="like-box">
-                <div className="like-btn-container">
+                <div
+                  id={index}
+                  className={`like-btn-container ${
+                    likes ? 'active' : 'disactive'
+                  }`}
+                >
                   <img src={like} onClick={() => calLikes(comment.id, index)} />
 
                   <h5> {comment.likes}</h5>
