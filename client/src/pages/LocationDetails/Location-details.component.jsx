@@ -10,6 +10,7 @@ import ReservedBar from '../../component/ReservedBar/ReservedBar.component'
 import { UserContext } from '../../contexts/user.context'
 import UserComment from '../../component/UserComment/UserComment.component'
 import like from '../../assets/heart-like.png'
+import axios from 'axios'
 const LocationDetail = () => {
   const { user, setUser } = useContext(UserContext)
   const { selectedlocation, setSelectedLocation, stateAndCity } =
@@ -40,8 +41,13 @@ const LocationDetail = () => {
   const leaveCommont = () => {
     setIsLeavingCommont(!isLeavingCommont)
   }
-  const calLikes = (comment, index) => {
-    console.log('hello')
+  const calLikes = async (commentId, index) => {
+    console.log(commentId)
+    const res = await axios.get(
+      `http://localhost:3001/api/comment/like/${commentId}`
+    )
+    const updatedComment = await res.data
+    console.log(updatedComment)
   }
 
   return (
