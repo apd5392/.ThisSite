@@ -40,7 +40,7 @@ const EditForm = () => {
     console.log(Formfields)
     e.preventDefault()
     const res = await axios.put(
-      `http://localhost:3001/api/comment/${comment.id}`,
+      `${process.env.REACT_APP_BASE_URL}/api/comment/${comment.id}`,
       Formfields
     )
     console.log(res.data)

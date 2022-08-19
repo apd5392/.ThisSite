@@ -1,64 +1,57 @@
-import { useContext, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../contexts/user.context";
-import "./account.styles.css";
+import { useContext, useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../contexts/user.context'
+import './account.styles.css'
 const AccountDetail = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext)
   const [userUpdateInput, setuserUpdateInput] = useState({
-    email: user ? user.email : "",
-    password: user ? user.password : "",
-    phoneNumber: user ? user.phoneNumber : "",
-    lastName: user ? user.lastName : "",
-    firstName: user ? user.firstName : "",
-  });
+    email: user ? user.email : '',
+    password: user ? user.password : '',
+    phoneNumber: user ? user.phoneNumber : '',
+    lastName: user ? user.lastName : '',
+    firstName: user ? user.firstName : ''
+  })
 
-  const [deleteUser, setDeleteUser] = useState(false);
-  const [updateUser, setUpdateUser] = useState(false);
+  const [deleteUser, setDeleteUser] = useState(false)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const submitUserInput = async (e) => {
-    e.preventDefault();
-    console.log(userUpdateInput);
-    const newUser = await axios.put(
-      `http://localhost:3001/api/user/${user.id}`,
-      userUpdateInput
-    );
-    console.log(newUser);
-    if (newUser.status === 200) {
-      console.log(newUser.data);
-      await setUser(newUser.data);
-      console.log(user);
-      e.target.reset();
-      setUpdateUser(true);
-      setTimeout(() => {
-        alert("Update Successful");
-        navigate(`/`);
-      }, 1500);
-    }
-  };
+    e.preventDefault()
+
+    // console.log(userUpdateInput)
+
+    // const newUser = await axios.put(`http://localhost:3001/api/user/${user._id}`, userUpdateInput)
+    // console.log(newUser)
+    // if (newUser.status === 200) {
+    //   console.log(newUser.data)
+    //   await setUser(newUser.data)
+    //   console.log(user)
+    //   e.target.reset()
+    // }
+  }
 
   const handleChange = (e) => {
     setuserUpdateInput({
       ...userUpdateInput,
-      [e.target.name]: e.target.value,
-    });
-    console.log(userUpdateInput);
-  };
+      [e.target.name]: e.target.value
+    })
+    console.log(userUpdateInput)
+  }
 
   const deleteAccount = async () => {
-    const res = await axios.delete(`http://localhost:3001/api/user/${user.id}`);
-    console.log(res);
+    const res = await axios.delete(`http://localhost:3001/api/user/${user._id}`)
+    console.log(res)
 
-    setDeleteUser(true);
+    setDeleteUser(true)
     setTimeout(() => {
-      alert("Delete Successful");
-      navigate(`/`);
-    }, 1500);
-  };
+      alert('Delete Successful')
+      navigate(`/`)
+    }, 1500)
+  }
 
-  console.log(user);
+  console.log(user)
 
   return (
     <div className="create-account-main">
@@ -67,14 +60,7 @@ const AccountDetail = () => {
           <h1 className="deleteAccMessage">WE ARE SORRY TO LOSE YOU ....</h1>
         </div>
       ) : (
-        ""
-      )}
-      {updateUser === true ? (
-        <div>
-          <h1 className="UpdateAccMessage">Account Updated!</h1>
-        </div>
-      ) : (
-        ""
+        ''
       )}
       <div />
       <h1>Update Account Information</h1>
@@ -83,25 +69,25 @@ const AccountDetail = () => {
           <input
             type="text"
             name="firstName"
-            placeholder={user ? user.firstName : "First Name"}
+            placeholder={user ? user.firstName : 'First Name'}
             onChange={handleChange}
           />
           <input
             type="text"
             name="lastName"
-            placeholder={user ? user.lastName : "Last Name"}
+            placeholder={user ? user.lastName : 'Last Name'}
             onChange={handleChange}
           />
           <input
             type="text"
             name=" phoneNumber"
-            placeholder={user ? user.phoneNumber : "Phone Number"}
+            placeholder={user ? user.phoneNumber : 'Phone Number'}
             onChange={handleChange}
           />
           <input
             type="text"
             name="email"
-            placeholder={user ? user.email : "Email"}
+            placeholder={user ? user.email : 'Email'}
             onChange={handleChange}
           />
           <input
@@ -127,7 +113,7 @@ const AccountDetail = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AccountDetail;
+export default AccountDetail

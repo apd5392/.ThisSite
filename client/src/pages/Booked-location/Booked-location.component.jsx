@@ -11,7 +11,7 @@ const BookedLocation = () => {
   useEffect(() => {
     const getBookedLocation = async () => {
       const res = await axios.get(
-        `http://localhost:3001/api/location/booked/${user.id}`
+        `${process.env.REACT_APP_BASE_URL}/location/booked/${user.id}`
       )
       const newBookedlocation = await res.data
       console.log(newBookedlocation)

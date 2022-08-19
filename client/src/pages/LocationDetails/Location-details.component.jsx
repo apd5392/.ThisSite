@@ -48,7 +48,7 @@ const LocationDetail = () => {
     const likeId = document.getElementById(index)
     if (likeStatus.classList.contains('disactive')) {
       const res = await axios.get(
-        `http://localhost:3001/api/comment/like/${commentId}`
+        `${process.env.REACT_APP_BASE_URL}/like/${commentId}`
       )
       const updatedComment = await res.data
       console.log(updatedComment)
@@ -62,7 +62,7 @@ const LocationDetail = () => {
       toggleLikes(!likes)
     } else {
       const res = await axios.get(
-        `http://localhost:3001/api/comment/dislike/${commentId}`
+        `${process.env.REACT_APP_BASE_URL}/dislike/${commentId}`
       )
       const updatedComment = await res.data
       console.log(updatedComment)

@@ -13,7 +13,7 @@ const HostedLocation = () => {
   useEffect(() => {
     const getHostedLocation = async () => {
       const res = await axios.get(
-        `http://localhost:3001/api/location/hosted/${user.id}`
+        `${process.env.REACT_APP_BASE_URL}/hosted/${user.id}`
       )
       const newHostedlocation = await res.data
 
@@ -37,7 +37,7 @@ const HostedLocation = () => {
             <div className="hostedlocation-content-container">
               <p className="location-name">{`${location.name}`}</p>
               <p>{`Address: ${location.address}`}</p>
-              <p>{`Description: ${location.description}`}</p>
+              <p className="hostedlocation-description">{`Description: ${location.description}`}</p>
               <p>{`Price: $ ${location.price}`}</p>
             </div>
           </div>

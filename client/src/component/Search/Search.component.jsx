@@ -84,7 +84,7 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
       end_date: endDate.toISOString().split('T')[0]
     })
     const result = await axios.post(
-      `http://localhost:3001/api/location/search`,
+      `${process.env.REACT_APP_BASE_URL}/location/search`,
       {
         cityandstate: address,
         start_date: startDate.toISOString().split('T')[0],
