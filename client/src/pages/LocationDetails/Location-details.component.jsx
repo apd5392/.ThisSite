@@ -13,9 +13,8 @@ import like from '../../assets/heart-like.png'
 import axios from 'axios'
 const LocationDetail = () => {
   const { user, setUser } = useContext(UserContext)
-  const { selectedlocation, setSelectedLocation, stateAndCity } =
-    useContext(LocationContext)
-  const { likes, toggleLikes } = useState(false)
+  const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
+
   const {
     isEdit,
     setIsEdit,
@@ -27,10 +26,12 @@ const LocationDetail = () => {
   const { dateRange } = useContext(ReserveContext)
   const { name, address, description, images, price, host, Comments } =
     selectedlocation
-  // //   const location = useLocation()
-  //   const seteditComment = location.state.seteditComment
-  //   const editComment = location.state.editComment
-  //   console.log(selectedlocation)
+  const [likes, toggleLikes] = useState(false)
+
+  const add = address.split(',')
+  console.log(add)
+
+  console.log(selectedlocation)
 
   const openEdit = (comment, index) => {
     setIsEdit(!isEdit)
@@ -41,6 +42,7 @@ const LocationDetail = () => {
   const leaveCommont = () => {
     setIsLeavingCommont(!isLeavingCommont)
   }
+
   const calLikes = async (commentId, index) => {
     console.log(commentId)
     const res = await axios.get(
@@ -48,8 +50,15 @@ const LocationDetail = () => {
     )
     const updatedComment = await res.data
     console.log(updatedComment)
+    const newSelectedlocation = selectedlocation
+
+    newSelectedlocation.Comments.splice(index, 1, updatedComment)
+    console.log(newSelectedlocation)
+
+    setSelectedLocation(newSelectedlocation)
+    toggleLikes(!likes)
   }
-  console.log(Comments)
+  console.log(selectedlocation)
 
   return (
     <div
@@ -59,7 +68,7 @@ const LocationDetail = () => {
     >
       <div className="location-second-container">
         <h1 className="locationTitle">{name}</h1>
-        <h2 className="locationLabel">{`${stateAndCity.city}, ${stateAndCity.state}`}</h2>
+        <h2 className="locationLabel">{`${add[1]}, ${add[2]}`}</h2>
 
         <div className="location-img-main-container">
           {images.map((img, index) => (
@@ -87,31 +96,30 @@ const LocationDetail = () => {
         </button>
         <UserComment />
         <div className="review-main-container">
-          {Comments &&
-            Comments.map((comment, index) => (
-              <div key={index} className="review-container">
-                <div onClick={() => openEdit(comment, index)}>
-                  {comment.user_Id === user.id ? (
-                    <i class="fas fa-edit edit-icon"></i>
-                  ) : (
-                    ''
-                  )}
-                </div>
-                <h5> {comment.commentCreator.firstName}</h5>
+          {Comments.map((comment, index) => (
+            <div key={index} className="review-container">
+              <div>
+                {comment.user_Id === user.id ? (
+                  <i
+                    class="fas fa-edit edit-icon"
+                    onClick={() => openEdit(comment, index)}
+                  ></i>
+                ) : (
+                  ''
+                )}
+              </div>
+              <h5> {comment.commentCreator.firstName}</h5>
 
-                {`comment: ${comment.content}`}
-                <div className="like-box">
-                  <div className="like-btn-container">
-                    <img
-                      src={like}
-                      onClick={() => calLikes(comment.id, index)}
-                    />
+              {`comment: ${comment.content}`}
+              <div className="like-box">
+                <div className="like-btn-container">
+                  <img src={like} onClick={() => calLikes(comment.id, index)} />
 
-                    <h5> {comment.likes}</h5>
-                  </div>
+                  <h5> {comment.likes}</h5>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
 
         {isEdit && <EditForm />}

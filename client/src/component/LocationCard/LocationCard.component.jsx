@@ -14,16 +14,10 @@ const LocationCard = ({ location }) => {
 
   const selectlocation = () => {
     setSelectedLocation(location)
-    setStateAndCity({
-      city: selectedlocation.address.split(',')[1],
-      state: selectedlocation.address.split(',')[2]
-    })
-    console.log(stateAndCity)
+
     console.log(selectedlocation)
 
-    navigate(`/location/details/${location.id}`, {
-      state: { id: `${location.id}` }
-    })
+    navigate(`/location/details/${location.id}`)
   }
 
   return (

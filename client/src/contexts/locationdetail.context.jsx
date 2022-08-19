@@ -2,19 +2,15 @@ import { createContext, useState } from 'react'
 
 export const LocationContext = createContext({
   selectedlocation: '',
-  setSelectedLocation: () => {},
-  stateAndCity: '',
-  setStateAndCity: () => {}
+  setSelectedLocation: () => {}
 })
 
 export const LocationProvider = ({ children }) => {
   const [selectedlocation, setSelectedLocation] = useState({})
-  const [stateAndCity, setStateAndCity] = useState({})
+
   const value = {
     selectedlocation,
-    setSelectedLocation,
-    stateAndCity,
-    setStateAndCity
+    setSelectedLocation
   }
 
   return (
