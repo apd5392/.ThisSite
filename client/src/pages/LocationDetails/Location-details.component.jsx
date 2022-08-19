@@ -15,7 +15,7 @@ const LocationDetail = () => {
   const { user, setUser } = useContext(UserContext)
   const { selectedlocation, setSelectedLocation, stateAndCity } =
     useContext(LocationContext)
-  const { likes, toggleLikes } = useState()
+  const { likes, toggleLikes } = useState(false)
   const {
     isEdit,
     setIsEdit,
@@ -49,6 +49,7 @@ const LocationDetail = () => {
     const updatedComment = await res.data
     console.log(updatedComment)
   }
+  console.log(Comments)
 
   return (
     <div
@@ -96,7 +97,7 @@ const LocationDetail = () => {
                     ''
                   )}
                 </div>
-                <h5> Likes : {comment.likes}</h5>
+                <h5> {comment.commentCreator.firstName}</h5>
 
                 {`comment: ${comment.content}`}
                 <div className="like-box">
