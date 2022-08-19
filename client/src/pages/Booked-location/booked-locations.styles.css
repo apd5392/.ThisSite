@@ -1,0 +1,13 @@
+.booklocation-main-container {
+  width: 100vw;
+  display: flex;
+}
+.booklocation-main-container h1 {
+  margin: 50px 40px;
+}
+
+.bookedlocation-second-container {
+  width: 1000px;
+  background-color: aqua;
+  margin: 100px -50px;
+}

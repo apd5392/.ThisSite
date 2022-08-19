@@ -10,6 +10,7 @@ import HostedLocation from './pages/HostedLocation/HostedLocation.component'
 import ConfirmationPage from './pages/ConfirmationPage/Confirmation.component'
 import { useState, useEffect, useContext } from 'react'
 import SearchResults from './pages/SearchResults/SearchResults.component'
+import BookedLocation from './pages/Booked-location/Booked-location.component'
 import { CheckSession } from '../src/services/Auth'
 import { UserContext } from './contexts/user.context'
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/hostedlocations" element={<HostedLocation />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/searchresults" element={<SearchResults />} />
+        <Route path="/bookedlocation" element={<BookedLocation />} />
       </Route>
     </Routes>
   )

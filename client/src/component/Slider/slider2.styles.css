@@ -3,6 +3,7 @@
   height: 360px;
   position: relative;
   display: flex;
+
   align-items: center;
   margin: 120px 150px 0px 50px;
   position: absolute;
@@ -15,6 +16,9 @@
   white-space: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
+  display: flex;
+  flex-direction: row-reverse;
+
   scroll-behavior: smooth;
 }
 
