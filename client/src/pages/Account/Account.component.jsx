@@ -14,20 +14,28 @@ const AccountDetail = () => {
   });
 
   const [deleteUser, setDeleteUser] = useState(false);
-  const [updateUser, setUser] = useState(false);
+  const [updateUser, setUpdateUser] = useState(false);
 
   const navigate = useNavigate();
 
   const submitUserInput = async (e) => {
     e.preventDefault();
-    console.log(userUpdateInput)
-    const newUser = await axios.put(`http://localhost:3001/api/user/${user.id}`, userUpdateInput)
-    console.log(newUser)
+    console.log(userUpdateInput);
+    const newUser = await axios.put(
+      `http://localhost:3001/api/user/${user.id}`,
+      userUpdateInput
+    );
+    console.log(newUser);
     if (newUser.status === 200) {
-      console.log(newUser.data)
-      await setUser(newUser.data)
-      console.log(user)
-      e.target.reset()
+      console.log(newUser.data);
+      await setUser(newUser.data);
+      console.log(user);
+      e.target.reset();
+      setUpdateUser(true);
+      setTimeout(() => {
+        alert("Update Successful");
+        navigate(`/`);
+      }, 1500);
     }
   };
 
@@ -40,8 +48,8 @@ const AccountDetail = () => {
   };
 
   const deleteAccount = async () => {
-    const res = await axios.delete(`http://localhost:3001/api/user/${user.id}`)
-    console.log(res)
+    const res = await axios.delete(`http://localhost:3001/api/user/${user.id}`);
+    console.log(res);
 
     setDeleteUser(true);
     setTimeout(() => {
@@ -57,6 +65,13 @@ const AccountDetail = () => {
       {deleteUser === true ? (
         <div>
           <h1 className="deleteAccMessage">WE ARE SORRY TO LOSE YOU ....</h1>
+        </div>
+      ) : (
+        ""
+      )}
+      {updateUser === true ? (
+        <div>
+          <h1 className="UpdateAccMessage">Account Updated!</h1>
         </div>
       ) : (
         ""
@@ -93,6 +108,7 @@ const AccountDetail = () => {
             type="password"
             name="Password"
             placeholder="Password*"
+            required
             onChange={handleChange}
           />
           <div className="btn-box">

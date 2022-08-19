@@ -59,6 +59,12 @@
 
 .deleteAccMessage {
   border-style: dashed;
+  border-color: red;
+  border-width: 10px;
+  padding: 15px;
+}
+.UpdateAccMessage{
+  border-style: dashed;
   border-color: #546747;
   border-width: 10px;
   padding: 15px;
