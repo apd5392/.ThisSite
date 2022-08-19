@@ -12,6 +12,7 @@ const Home = () => {
   const [locations, setLocations] = useState([])
   const { editcomment } = useContext(EditContext)
   console.log(editcomment)
+
   useEffect(() => {
     const getLocations = async () => {
       const locations = await axios.get(`http://localhost:3001/api/location`)
@@ -19,7 +20,7 @@ const Home = () => {
       setLocations(locations.data)
     }
     getLocations()
-  }, [editcomment])
+  }, [])
   console.log(editcomment)
 
   console.log(locations.Comments)

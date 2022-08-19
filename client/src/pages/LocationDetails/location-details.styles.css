@@ -94,3 +94,34 @@
   text-decoration: underline;
   font-style: italic;
 }
+
+.like-btn-container {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+  border-radius: 10px;
+}
+
+.like-btn-container img {
+  width: 115%;
+  height: 115%;
+  margin-bottom: -10px;
+}
+
+.like-btn-container h5 {
+  margin-top: 12px;
+}
+
+.like-box {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+
+.like-btn-container .like {
+  background-color: #fab73d;
+}

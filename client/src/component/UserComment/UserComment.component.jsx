@@ -58,9 +58,9 @@ const UserComment = () => {
       <div>
         <form
           className="usercomment-second-container"
-          onSubmit={handleSubmitComment}
+          onSubmit={(e) => handleSubmitComment(e)}
         >
-          <label className='userFeedBack'>Tell us what you think: </label>
+          <label className="userFeedBack">Tell us what you think: </label>
           <textarea
             type="text"
             onChange={handleChange}
@@ -69,7 +69,7 @@ const UserComment = () => {
             required
             className="comment-container"
           />
-          <label className='ratingBox'>Rating: </label>
+          <label className="ratingBox">Rating: </label>
           <input
             type="number"
             min="0"

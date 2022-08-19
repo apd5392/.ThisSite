@@ -4,13 +4,26 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const LocationCard = ({ location }) => {
-  const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
+  const {
+    selectedlocation,
+    setSelectedLocation,
+    stateAndCity,
+    setStateAndCity
+  } = useContext(LocationContext)
   const navigate = useNavigate()
 
   const selectlocation = () => {
     setSelectedLocation(location)
+    setStateAndCity({
+      city: selectedlocation.address.split(',')[1],
+      state: selectedlocation.address.split(',')[2]
+    })
+    console.log(stateAndCity)
+    console.log(selectedlocation)
 
-    navigate(`/location/details/${location.id}`)
+    navigate(`/location/details/${location.id}`, {
+      state: { id: `${location.id}` }
+    })
   }
 
   return (
