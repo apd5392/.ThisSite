@@ -37,7 +37,7 @@ const UserComment = () => {
     e.preventDefault()
     console.log(Formfields)
     const res = await axios.post(
-      `http://localhost:3001/api/comment`,
+      `${process.env.REACT_APP_BASE_URL}/comment`,
       Formfields
     )
     const newComment = res.data
