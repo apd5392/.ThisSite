@@ -14,22 +14,24 @@ const AccountDetail = () => {
   });
 
   const [deleteUser, setDeleteUser] = useState(false);
+  const [updateUser, setUser] = useState(false);
 
   const navigate = useNavigate();
 
   const submitUserInput = async (e) => {
     e.preventDefault();
-
-    // console.log(userUpdateInput)
-
-    // const newUser = await axios.put(`http://localhost:3001/api/user/${user._id}`, userUpdateInput)
-    // console.log(newUser)
-    // if (newUser.status === 200) {
-    //   console.log(newUser.data)
-    //   await setUser(newUser.data)
-    //   console.log(user)
-    //   e.target.reset()
-    // }
+    console.log(userUpdateInput);
+    const newUser = await axios.put(
+      `http://localhost:3001/api/user/${user.id}`,
+      userUpdateInput
+    );
+    console.log(newUser);
+    if (newUser.status === 200) {
+      console.log(newUser.data);
+      await setUser(newUser.data);
+      console.log(user);
+      e.target.reset();
+    }
   };
 
   const handleChange = (e) => {
@@ -41,8 +43,10 @@ const AccountDetail = () => {
   };
 
   const deleteAccount = async () => {
-    const res = await axios.delete(`http://localhost:3001/api/user/${user._id}`)
-    console.log(res)
+    const res = await axios.delete(
+      `http://localhost:3001/api/user/${user._id}`
+    );
+    console.log(res);
 
     setDeleteUser(true);
     setTimeout(() => {
