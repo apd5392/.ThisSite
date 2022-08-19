@@ -1,0 +1,21 @@
+.main-location-container {
+  width: 320px;
+  height: 200px;
+  background-color: antiquewhite;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 3px 3px 3px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.main-location-container img {
+  margin-top: 10px;
+  width: 200px;
+  height: 130px;
+}
+
+.main-location-container.content-box {
+  display: flex;
+}
