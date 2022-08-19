@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user.context";
 import "./account.styles.css";
 const AccountDetail = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [userUpdateInput, setuserUpdateInput] = useState({
     email: user ? user.email : "",
     password: user ? user.password : "",
@@ -20,17 +20,14 @@ const AccountDetail = () => {
 
   const submitUserInput = async (e) => {
     e.preventDefault();
-    console.log(userUpdateInput);
-    const newUser = await axios.put(
-      `http://localhost:3001/api/user/${user.id}`,
-      userUpdateInput
-    );
-    console.log(newUser);
+    console.log(userUpdateInput)
+    const newUser = await axios.put(`http://localhost:3001/api/user/${user.id}`, userUpdateInput)
+    console.log(newUser)
     if (newUser.status === 200) {
-      console.log(newUser.data);
-      await setUser(newUser.data);
-      console.log(user);
-      e.target.reset();
+      console.log(newUser.data)
+      await setUser(newUser.data)
+      console.log(user)
+      e.target.reset()
     }
   };
 
@@ -43,10 +40,8 @@ const AccountDetail = () => {
   };
 
   const deleteAccount = async () => {
-    const res = await axios.delete(
-      `http://localhost:3001/api/user/${user._id}`
-    );
-    console.log(res);
+    const res = await axios.delete(`http://localhost:3001/api/user/${user.id}`)
+    console.log(res)
 
     setDeleteUser(true);
     setTimeout(() => {
