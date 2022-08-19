@@ -1,0 +1,163 @@
+.search-container {
+  display: flex;
+  width: 1050px;
+  background-color: rgb(48, 92, 48);
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  border-radius: 50px;
+}
+
+.autocomplete-dropdown-container {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 10px;
+  background-color: aliceblue;
+  color: black;
+}
+
+.where-container {
+  width: 300px;
+  height: 60px;
+  border-radius: 40px;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* .where-container:hover {
+  background-color: #bbc8ba;
+  color: black;
+}
+
+.where-container:focus {
+  transform: scale(105);
+} */
+
+.location-search-input {
+  border: none;
+  display: block;
+  height: 40px;
+  background-color: transparent;
+}
+.location-search-input:focus {
+  outline: 0;
+}
+
+.checkin-container {
+  position: relative;
+  color: white;
+  width: 300px;
+  height: 60px;
+  border-radius: 40px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.checkin-container:hover {
+  background-color: #bbc8ba;
+  color: black;
+}
+.date-calender {
+  position: absolute;
+  left: 0;
+  top: 75px;
+}
+.date-calender-container {
+  background-color: white;
+  height: 200px;
+}
+
+.checkin-container label {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+}
+
+.checkin-container.active {
+  border: 2px blue solid;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+
+.addGuest-container {
+  width: 200px;
+  height: 60px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  position: relative;
+  color: white;
+}
+.addGuest-container:hover {
+  background-color: #bbc8ba;
+  color: black;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  background-color: rgb(48, 92, 48);
+  color: white;
+  width: 220px;
+  height: 200px;
+  border-radius: 5%;
+}
+
+.dropdown-menu .panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  margin: 10px 10px 10px 10px;
+}
+
+.dropdown-menu .btn-box {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn-box .btns {
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px 8px;
+  background-color: rgb(48, 92, 48);
+  font-size: 20px;
+  color: white;
+}
+
+.btn-box.number {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.searchButton {
+  margin-left: 20px;
+
+  cursor: pointer;
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 50%;
+  background-color: rgb(48, 92, 48);
+  border-color: white;
+  color: white;
+  font-size: 20px;
+}
+
+.searchButton:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.location-search-input {
+  color: white;
+}
+::placeholder {
+  color: white;
+}

@@ -1,0 +1,50 @@
+.reserve-main-container {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 15px;
+  width: 350px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 450px;
+  right: 50px;
+  background-color: white;
+}
+
+.date-container {
+  margin-top: 20px;
+  width: 80%;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  text-align: center;
+  line-height: 35px;
+}
+
+.numberGuest-container {
+  width: 80%;
+  height: 40px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  text-align: center;
+  line-height: 35px;
+}
+
+.reserveButton {
+  margin: 30px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #546747;
+  color: white;
+}
+
+.date--calender-container {
+  position: absolute;
+  right: 200px;
+}
+.reserveDisclaimer{
+  font-size: small;
+}
+
