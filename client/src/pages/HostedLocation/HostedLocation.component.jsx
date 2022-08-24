@@ -13,7 +13,7 @@ const HostedLocation = () => {
   useEffect(() => {
     const getHostedLocation = async () => {
       const res = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/hosted/${user.id}`
+        `${process.env.REACT_APP_BASE_URL}/location//hosted/${user.id}`
       )
       const newHostedlocation = await res.data
 
