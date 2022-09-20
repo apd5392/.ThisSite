@@ -17,13 +17,11 @@ const Home = () => {
       const locations = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/location`
       )
-      console.log(locations.data)
+
       setLocations(locations.data)
     }
     getLocations()
   }, [])
-
-  console.log(locations)
 
   return (
     <div className="Home-container">

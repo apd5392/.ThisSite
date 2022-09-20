@@ -92,7 +92,6 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
       }
     )
     const searchResult = await result.data
-    console.log(searchResult)
 
     setSearchResult(searchResult)
 
@@ -103,9 +102,6 @@ const Search = ({ isScriptLoaded, isScriptLoadSucceed }) => {
     setnumberOfGuest({ ...headCounts })
     navigate(`/searchresults`)
   }
-  console.log(searchResult)
-  console.log(dateRange)
-  console.log(searchLocation)
 
   if (isScriptLoaded && isScriptLoadSucceed) {
     return (

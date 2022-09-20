@@ -42,7 +42,7 @@ const LocationDetail = () => {
 
   const { id } = useParams()
   console.log(id)
-
+  console.log(Comments)
   useEffect(() => {
     const getLocationDetails = async () => {
       isLoading(true)
@@ -66,6 +66,7 @@ const LocationDetail = () => {
   //   }
   // }, [])
 
+  console.log(dateRange)
   const add = address === undefined ? '' : address.split(',')
 
   const openEdit = (comment, index) => {
