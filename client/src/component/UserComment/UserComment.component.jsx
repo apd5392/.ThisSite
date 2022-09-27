@@ -5,6 +5,7 @@ import { LocationContext } from '../../contexts/locationdetail.context'
 import { UserContext } from '../../contexts/user.context'
 import axios from 'axios'
 import './userComment.styles.css'
+import Client from '../../services/api'
 const defaultFormfields = {
   user_id: '',
   location_id: '',
@@ -40,7 +41,9 @@ const UserComment = () => {
       `${process.env.REACT_APP_BASE_URL}/comment`,
       Formfields
     )
+    console.log(res)
     const newComment = res.data
+    console.log(newComment)
 
     const newSelectedlocation = selectedlocation
 
@@ -50,6 +53,8 @@ const UserComment = () => {
     setSelectedLocation(newSelectedlocation)
     setIsLeavingCommont(!isLeavingCommont)
   }
+
+  console.log(selectedlocation)
 
   return (
     <div

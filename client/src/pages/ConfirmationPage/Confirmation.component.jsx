@@ -1,7 +1,7 @@
 import './confirmation.styles.css'
 
 import { ReserveContext } from '../../contexts/reserve.context'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/user.context'
 import axios from 'axios'
@@ -25,7 +25,7 @@ const ConfirmationPage = () => {
 
   const { user, setUser } = useContext(UserContext)
   const [booking, setBooking] = useState(defaultBooking)
-
+  const navigate = useNavigate()
   const calDays = (startDate, endDate) => {
     const difference = endDate - startDate
     const totalDays = Math.ceil(difference / (1000 * 3600 * 24))
@@ -52,18 +52,27 @@ const ConfirmationPage = () => {
     await setBooking({
       user_id: user.id,
       location_id: location.id,
-      start_date: JSON.stringify(
-        dateRange.startDate.toISOString().split('T')[0]
-      ),
-      end_date: JSON.stringify(dateRange.endDate.toISOString().split('T')[0])
+      start_date: dateRange.startDate.toISOString().split('T')[0],
+      end_date: dateRange.endDate.toISOString().split('T')[0]
     })
     const bookingResult = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/booking`,
-      booking
+      {
+        user_id: user.id,
+        location_id: location.id,
+        start_date: dateRange.startDate.toISOString().split('T')[0],
+        end_date: dateRange.endDate.toISOString().split('T')[0]
+      }
     )
     console.log(bookingResult)
+    if (bookingResult.status === 200) {
+      navigate(`/bookedlocation`)
+    } else {
+      alert(`something went wrong`)
+    }
   }
   console.log(booking)
+  console.log(dateRange.endDate.toISOString().split('T')[0])
 
   return (
     <div className="confirmation-main-container">

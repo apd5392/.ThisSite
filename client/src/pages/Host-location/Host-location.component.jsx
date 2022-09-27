@@ -2,7 +2,7 @@ import './host-location.styles.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
-
+import Client from '../../services/api'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/user.context'
 
@@ -22,6 +22,8 @@ const HostLocation = () => {
   const [preview, setPreview] = useState([])
   const navigate = useNavigate()
 
+  console.log(authenticated)
+  console.log(user)
   const handleChange = (e) => {
     const files = e.target.files
     console.log(files)
@@ -45,13 +47,18 @@ const HostLocation = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const newLocation = await axios.post(
+    const newLocation = await Client.post(
       `http://localhost:3001/api/location/host`,
       Formfields
     )
+    if (newLocation.status === 200) {
+      navigate(`/hostedlocations`)
+    } else {
+      alert('something went wrong....')
+    }
     console.log(newLocation)
   }
-
+  console.log(user)
   console.log(preview)
   console.log(Formfields)
 

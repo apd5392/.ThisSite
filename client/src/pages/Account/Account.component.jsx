@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../contexts/user.context'
 import './account.styles.css'
+import Client from '../../services/api'
+
 const AccountDetail = () => {
   const { user, setUser } = useContext(UserContext)
   const [userUpdateInput, setuserUpdateInput] = useState({
@@ -21,7 +23,7 @@ const AccountDetail = () => {
   const submitUserInput = async (e) => {
     e.preventDefault()
     console.log(userUpdateInput)
-    const newUser = await axios.put(
+    const newUser = await Client.put(
       `${process.env.REACT_APP_BASE_URL}/user/${user.id}`,
       userUpdateInput
     )
@@ -33,7 +35,6 @@ const AccountDetail = () => {
       e.target.reset()
       setUpdateUser(true)
       setTimeout(() => {
-        alert('Update Successful')
         navigate(`/`)
       }, 1500)
     }
