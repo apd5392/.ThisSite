@@ -2,23 +2,35 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding-top: 50px;
 }
 
 .sign-container {
-  background-color: #546747;
+  border: 1px solid #546747;
   border-radius: 10px;
-  padding: 15px;
+  padding: 25px 50px;
   text-align: center;
 }
 
 .signUp-container {
-  background-color: #546747;
+  border: 1px solid #546747;
   margin-top: 20px;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
 }
+.authentication-container button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #546747;
+  color: white;
+  font-size: 20px;
+}
 
+.signUp-container button:hover {
+  transform: scale(0.98);
+}
 input {
   width: 100%;
 }

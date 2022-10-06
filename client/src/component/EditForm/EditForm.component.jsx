@@ -5,6 +5,8 @@ import { useContext } from 'react'
 import { EditContext } from '../../contexts/edit.context'
 import { LocationContext } from '../../contexts/locationdetail.context'
 import axios from 'axios'
+import { EditComment } from '../../services/Auth'
+
 const defaultFormfields = {
   rating: '',
   content: ''
@@ -39,13 +41,10 @@ const EditForm = () => {
   const updateComment = async (e) => {
     console.log(Formfields)
     e.preventDefault()
-    const res = await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/comment/${comment.id}`,
-      Formfields
-    )
-    console.log(res.data)
+    const res = await EditComment(Formfields, comment.id)
+    console.log(res)
 
-    const updateComment = await res.data
+    const updateComment = await res
 
     const newSelectedlocation = selectedlocation
     console.log(newSelectedlocation.Comments)
