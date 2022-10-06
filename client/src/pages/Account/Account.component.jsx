@@ -24,7 +24,7 @@ const AccountDetail = () => {
     e.preventDefault()
     console.log(userUpdateInput)
     const newUser = await Client.put(
-      `${process.env.REACT_APP_BASE_URL}/user/${user.id}`,
+      `https://s5honfx6f0.execute-api.us-east-1.amazonaws.com/latest/api/user/${user.id}`,
       userUpdateInput
     )
     console.log(newUser)
@@ -50,7 +50,7 @@ const AccountDetail = () => {
 
   const deleteAccount = async () => {
     const res = await axios.delete(
-      `${process.env.REACT_APP_BASE_URL}/user/${user.id}`
+      `https://s5honfx6f0.execute-api.us-east-1.amazonaws.com/latest/api/user/${user.id}`
     )
     console.log(res)
 

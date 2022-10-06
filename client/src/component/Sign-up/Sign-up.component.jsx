@@ -24,12 +24,12 @@ const SignUp = () => {
     const newUser = await RegisterUser(Formfields)
     console.log(newUser)
     setFormfields(defaultFormfields)
+    setconfirmPassword('')
   }
 
   const handleChange = (e) => {
     console.log(e.target.value)
     const { name, value } = e.target
-
     setFormfields({ ...Formfields, [name]: value })
   }
 

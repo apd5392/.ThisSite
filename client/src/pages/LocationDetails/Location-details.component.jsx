@@ -43,6 +43,7 @@ const LocationDetail = () => {
   const { id } = useParams()
   console.log(id)
   console.log(Comments)
+
   useEffect(() => {
     const getLocationDetails = async () => {
       isLoading(true)
