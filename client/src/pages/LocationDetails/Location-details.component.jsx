@@ -13,8 +13,8 @@ import like from '../../assets/heart-like.png'
 import axios from 'axios'
 
 const LocationDetail = () => {
-  const { user, setUser } = useContext(UserContext)
-  // const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
+  const { user } = useContext(UserContext)
+  const { selectedlocation, setSelectedLocation } = useContext(LocationContext)
 
   const {
     isEdit,
@@ -25,17 +25,24 @@ const LocationDetail = () => {
     setIsLeavingCommont
   } = useContext(EditContext)
   const { dateRange } = useContext(ReserveContext)
-  const [selectedlocation, setSelectedLocation] = useState({
-    name: '',
-    address: '',
-    description: '',
-    images: [],
-    price: 0,
-    host: '',
-    Comments: []
-  })
-  const { name, address, description, images, price, host, Comments } =
-    selectedlocation
+  // const [selectedlocation, setSelectedLocation] = useState({
+  //   name: '',
+  //   address: '',
+  //   description: '',
+  //   images: [],
+  //   price: 0,
+  //   host: '',
+  //   Comments: []
+  // })
+  const {
+    name = '',
+    address = '',
+    description = '',
+    images = [],
+    price = 0,
+    host = '',
+    Comments = []
+  } = selectedlocation
   //console.log('selectedLocation after refresh: ', selectedlocation)
   const [likes, toggleLikes] = useState(false)
   const [loading, isLoading] = useState(false)
