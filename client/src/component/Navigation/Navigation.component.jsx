@@ -15,6 +15,14 @@ const Navigation = () => {
   const toggleUserIcon = () => {
     setToggleuser(!toggleuser)
   }
+  const getUser = async (e) => {
+    e.preventDefault()
+    const payload = await SignInUser({ userName: 'CC', password: 'abc1234' })
+    console.log(payload)
+    setUser(payload)
+    toggleAuthenticated(true)
+    navigate(`/`)
+  }
 
   return (
     <Fragment>
@@ -27,6 +35,7 @@ const Navigation = () => {
         </div>
 
         <div className="nav-links-container">
+          <h2 onClick={getUser}>Login existing User</h2>
           <Link className="nav-link" to="/">
             Home
           </Link>
