@@ -1,7 +1,7 @@
 .hostedlocation-main-container {
   margin: 50px auto;
   width: 100vw;
-  overflow-y: hidden;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
 }

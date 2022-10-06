@@ -5,16 +5,18 @@ import logo from '../../assets/logo.png'
 import './navigation.styles.css'
 import UserDropDown from '../User-dropdown/User-dropdown.component'
 import { useContext, useState } from 'react'
-
+import { SignInUser } from '../../services/Auth'
 import { UserContext } from '../../contexts/user.context'
-
+import { useNavigate } from 'react-router-dom'
 const Navigation = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser, toggleAuthenticated } = useContext(UserContext)
   const [toggleuser, setToggleuser] = useState(false)
 
+  const navigate = useNavigate()
   const toggleUserIcon = () => {
     setToggleuser(!toggleuser)
   }
+
   const getUser = async (e) => {
     e.preventDefault()
     const payload = await SignInUser({ userName: 'CC', password: 'abc1234' })
@@ -35,7 +37,6 @@ const Navigation = () => {
         </div>
 
         <div className="nav-links-container">
-          <h2 onClick={getUser}>Login existing User</h2>
           <Link className="nav-link" to="/">
             Home
           </Link>
@@ -51,6 +52,7 @@ const Navigation = () => {
               Sign In
             </Link>
           )}
+          {user ? '' : <button onClick={getUser}>Login existing user</button>}
         </div>
         {toggleuser && (
           <UserDropDown setToggleuser={setToggleuser} Toggleuser={toggleuser} />
