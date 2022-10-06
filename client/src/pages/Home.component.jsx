@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const getLocations = async () => {
       const locations = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/location`
+        `https://s5honfx6f0.execute-api.us-east-1.amazonaws.com/latest/api/location`
       )
 
       setLocations(locations.data)
